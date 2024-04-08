@@ -1,4 +1,4 @@
-function Body({daily}){
+function Forecast({daily}){
     return (
         <main>
               <h2>Forecast</h2>
@@ -30,4 +30,4 @@ function Body({daily}){
     )
 }
 
-export default Body;
+export default Forecast;

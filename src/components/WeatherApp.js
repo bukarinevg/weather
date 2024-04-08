@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import {  useLocation } from 'react-router-dom';
 import { getWeatherData } from '../services/api';
-import Header from './Header';
-import Body from './Body';
+import Current from './Current';
+import Forecast from './Forecast';
 
 function WeatherApp() {
   let [weatherData, setWeatherData] = useState(null);
@@ -31,7 +31,7 @@ function WeatherApp() {
       
         <div className="WeatherApp">
           {current_weather && (
-            <Header location={dataLocation} current_weather={current_weather} />
+            <Current location={dataLocation} current_weather={current_weather} />
           )}
     
           {daily && (
