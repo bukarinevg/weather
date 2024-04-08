@@ -1,12 +1,12 @@
 import './App.css';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter  as Router, Routes, Route } from 'react-router-dom';
 import WeatherApp from './components/WeatherApp';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/:city?" element={<WeatherApp />} />
+        <Route path="/" element={<WeatherApp />} />
       </Routes>
     </Router>
   );
