@@ -1,4 +1,4 @@
-function Header({location, current_weather}){
+function Current({location, current_weather}){
     return ( 
         <header>
             <h1>Current Weather in {location}</h1>
@@ -11,4 +11,4 @@ function Header({location, current_weather}){
     );
 }
 
-export default Header; // export the Header component
+export default Current; // export the Header component
