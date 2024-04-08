@@ -35,7 +35,7 @@ function WeatherApp() {
           )}
     
           {daily && (
-            <Body daily={daily} />
+            <Forecast daily={daily} />
           )}
           <p>Weather data for {location}: {weatherData ? JSON.stringify(weatherData) : 'Loading...'}</p>
         </div>
