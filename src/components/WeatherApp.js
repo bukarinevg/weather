@@ -3,6 +3,7 @@ import {  useLocation } from 'react-router-dom';
 import { getWeatherData } from '../services/api';
 import Current from './Current';
 import Forecast from './Forecast';
+import Loading from './Loading';
 
 function WeatherApp() {
   let [weatherData, setWeatherData] = useState(null);
@@ -30,14 +31,19 @@ function WeatherApp() {
   return (
       
         <div className="WeatherApp">
-          {current_weather && (
-            <Current location={dataLocation} current_weather={current_weather} />
-          )}
-    
-          {daily && (
-            <Forecast daily={daily} />
-          )}
-          <p>Weather data for {location}: {weatherData ? JSON.stringify(weatherData) : 'Loading...'}</p>
+          <h1>Weather App</h1>
+          {
+            weatherData?
+            <>
+              <Current location={dataLocation} current_weather={current_weather} />
+              <Forecast location={dataLocation} daily={daily} />
+            </>   
+            : <Loading />
+          }
+                
+
+            {/* <Loading /> */}
+            {/* <p>Weather data for {location}: {weatherData ? JSON.stringify(weatherData) : 'Loading...'}</p> */}
         </div>
   );
 }
