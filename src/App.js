@@ -1,19 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import { getWeatherData } from './services/api';
-import { useState, useEffect, StrictMode } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
 
- function App(){
+function WeatherApp() {
   let { city } = useParams();
-  console.log('city=', city);
-
-  // let { city } = match.params;
-  // console.log('location=', city);
   let [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
+    
     const fetchData = async () => {
       try {
         const data = await getWeatherData(city);
@@ -24,24 +19,16 @@ import { useParams } from 'react-router-dom';
     };
 
     fetchData();
-  }, []);
-
-  console.log(' data=' ,weatherData);
+    
+  }, []); // Added city to dependency array to re-fetch data when city changes
 
   return (
-    // <StrictMode>
-      <div className="App">
-        {/* <header className="App-header">
-        </header> */}
-        <main>
-          <h1>Weather App</h1>
-          <p>Weather data: {JSON.stringify(weatherData)}</p>
-        </main>
-        
-      </div>
-    // </StrictMode>
-
-    
+    <div className="App">
+      <main>
+        <h1>Weather App</h1>
+        <p>Weather data for {city}: {weatherData ? JSON.stringify(weatherData) : 'Loading...'}</p>
+      </main>
+    </div>
   );
 }
 
@@ -49,11 +36,10 @@ function AppWrapper() {
   return (
     <Router>
       <Routes>
-        <Route path="/:city?" element={<App />} />
+        <Route path="/:city?" element={<WeatherApp />} />
       </Routes>
     </Router>
   );
 }
 
 export default AppWrapper;
-
