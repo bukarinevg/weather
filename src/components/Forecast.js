@@ -2,15 +2,15 @@ function Forecast({daily}){
     return (
         <main>
               <h2>Forecast</h2>
-              <table>
+              <table class="table">
                 <thead>
                   <tr>
-                    <th>Date</th>
-                    <th>Max Temp</th>
-                    <th>Min Temp</th>
-                    <th>Weather Code</th>
-                    <th>Sunrise</th>
-                    <th>Sunset</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Max Temp</th>
+                    <th scope="col">Min Temp</th>
+                    <th scope="col">Weather Code</th>
+                    <th scope="col">Sunrise</th>
+                    <th scope="col">Sunset</th>
                   </tr>
                 </thead>
                 <tbody>
