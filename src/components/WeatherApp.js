@@ -11,13 +11,13 @@ function WeatherApp() {
   let [location, setLocation] = useState(new URLSearchParams(useLocation().search).get('location') || null); // [1
 
 
-  console.log('location' ,location);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         setWeatherData(null);
         const data = await getWeatherData(location);
+        console.log('data= ', data);
+        if(!data) throw new Error('No data returned');
         setWeatherData(data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -29,8 +29,6 @@ function WeatherApp() {
 
   const { location: dataLocation, data, time:currentTime } = weatherData || {};
   const { current_weather: currentWeather, daily } = data || {};
-  console.log('data', data);
-  console.log('currentWeather', currentWeather);
 
   return (
       
@@ -40,7 +38,7 @@ function WeatherApp() {
             weatherData?
             <main className='container'>
               <Current location={dataLocation} currentWeather={currentWeather} currentTime={currentTime} />
-              <Forecast location={dataLocation} daily={daily} />
+              <Forecast daily={daily} currentTime={currentTime} />
             </main>   
             : <Loading />
           }

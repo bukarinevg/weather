@@ -28,7 +28,7 @@ function Current({location, currentWeather, currentTime}){
                                 <span className="widget-49-date-day">{currentWeather.temperature}°C</span>
                             </div>
                             <div className="widget-49-meeting-info">
-                                <span className="widget-49-pro-title">Currently: {weatherDescription}</span>
+                                <span className="widget-49-pro-title">Today: {weatherDescription}</span>
                                 <span className="widget-49-meeting-time">{currentTime.time} {currentTime.day_of_week}</span>
                             </div>
                         </div>

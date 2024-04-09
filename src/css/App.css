@@ -1,5 +1,6 @@
 body, .App, #root, .WeatherApp {
   min-height: 100vh;
+  min-width: 100vh;
 }
 
 .Current{
