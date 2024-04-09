@@ -4,18 +4,20 @@ import { getWeatherData } from '../services/api';
 import Current from './Current';
 import Forecast from './Forecast';
 import Loading from './Loading';
+import Header from './Header';
 
 function WeatherApp() {
   let [weatherData, setWeatherData] = useState(null);
   let [location, setLocation] = useState(new URLSearchParams(useLocation().search).get('location') || null); // [1
 
 
-  console.log('location' ,location);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setWeatherData(null);
         const data = await getWeatherData(location);
+        console.log('data= ', data);
+        if(!data) throw new Error('No data returned');
         setWeatherData(data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -25,21 +27,22 @@ function WeatherApp() {
     fetchData();
   }, [location]); 
 
-  const { location: dataLocation, data } = weatherData || {};
-  const { current_weather, daily } = data || {};
+  const { location: dataLocation, data, time:currentTime } = weatherData || {};
+  const { current_weather: currentWeather, daily } = data || {};
 
   return (
       
-        <div className="WeatherApp">
-          <h1>Weather App</h1>
+        <div className="WeatherApp" >
+          <Header setLocation={setLocation}/>
           {
             weatherData?
-            <>
-              <Current location={dataLocation} current_weather={current_weather} />
-              <Forecast location={dataLocation} daily={daily} />
-            </>   
+            <main className='container'>
+              <Current location={dataLocation} currentWeather={currentWeather} currentTime={currentTime} />
+              <Forecast daily={daily} currentTime={currentTime} />
+            </main>   
             : <Loading />
           }
+          
                 
 
             {/* <Loading /> */}
