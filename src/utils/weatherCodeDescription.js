@@ -1,6 +1,6 @@
 const weatherCodeDescription = {
-    0: "No cloud development observed",
-    1: "Clouds dissipating or less developed",
+    0: "Clear sky",
+    1: "Mainly clear, some clouds",
     2: "Sky condition unchanged",
     3: "Clouds forming or developing",
     4: "Reduced visibility due to smoke (e.g., wildfires, industrial, volcanic)",
