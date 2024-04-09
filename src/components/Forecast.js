@@ -23,24 +23,26 @@ function Forecast({daily, currentTime}){
   }
 
   return (
-      <main>
-            <h2>Forecast</h2>
-            <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col">Date</th>
-                  <th scope="col">Max Temp</th>
-                  <th scope="col">Min Temp</th>
-                  <th scope="col">Weather Code</th>
-                  <th scope="col">Sunrise</th>
-                  <th scope="col">Sunset</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tableRows(daily)}
-              </tbody>
-            </table>
-          </main>
+    <main>
+      <h2>Forecast</h2>
+      <div class="table-responsive">
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Max Temp</th>
+              <th scope="col">Min Temp</th>
+              <th scope="col">Weather Code</th>
+              <th scope="col">Sunrise</th>
+              <th scope="col">Sunset</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableRows(daily)}
+          </tbody>
+        </table>
+      </div>
+    </main>
   )
 }
 
