@@ -10,38 +10,15 @@ import Error from './Error';
 import { useQuery } from 'react-query';
 
 function WeatherApp() {
-  // const [error, setError] = useState(null); 
-  // const [weatherData, setWeatherData] = useState(null);
-  // const [location, setLocation] = useState(new URLSearchParams(useLocation().search).get('location') || null);
-  // const [loading, setLoading] = useState(true); // Added loading state
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setError(false);
-  //       setWeatherData(null);
-  //       setLoading(true);
-  //       let data = await getWeatherData(location);
-  //       if (typeof data === 'number') {
-  //         setError(response.status);
-  //         return;
-  //       }
-  //       setWeatherData(data);
-
-
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [location]); 
-
-
   const [location, setLocation] = useState(new URLSearchParams(useLocation().search).get('location') || null);
 
-  const { data, error, isLoading, isError } = useQuery(['weatherData', location], () => getWeatherData(location));
+  const { data, error, isLoading, isError } = useQuery(['weatherData', location], () => getWeatherData(location), {
+    retry: (failureCount, error) => {
+      if (error.status === 404) return false;
+      new Promise(resolve => setTimeout(resolve, 1000));
+      return failureCount < 3;
+    },
+  });
 
   if (isError) {
     return  ( 
