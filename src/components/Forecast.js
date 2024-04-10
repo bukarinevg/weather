@@ -1,14 +1,19 @@
 import weatherCodeDescription from '../utils/weatherCodeDescription';
+import '../css/Forecast.css';
 
 function Forecast({daily, currentTime}){
+
   function dateFormat(inputDate){
     let date = new Date(inputDate+ 'Z');
     return date.toLocaleDateString("en-GB", { weekday: 'long',date:'number', month: 'long', day: 'numeric',  timeZone: currentTime.timeZone});
   }
+
   function timeFormat(inputDate){
     let date = new Date(inputDate+ 'Z');
     return date.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'}, {timeZone: currentTime.timeZone});
   }
+
+
   function tableRows(daily){
     return daily.sunrise.map((date, index) => (
       <tr key={date}>
@@ -25,8 +30,8 @@ function Forecast({daily, currentTime}){
   return (
     <main>
       <h2>Forecast</h2>
-      <div class="table-responsive">
-        <table className="table">
+      <div className="table-responsive">
+        <table className="table table-striped">
           <thead>
             <tr>
               <th scope="col">Date</th>

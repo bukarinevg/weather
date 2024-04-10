@@ -3,15 +3,10 @@ import weatherCodeDescription from '../utils/weatherCodeDescription';
 import '../css/Current.css';
 
 function Current({location, currentWeather, currentTime}){
-    // const time = new Date(currentWeather.time);
-    // const hours = time.getHours();
-    // const minutes = time.getMinutes();
+
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
-
     let sunrise = new Date(currentWeather.sunrise + 'Z');
-
     let sunset = new Date(currentWeather.sunset + 'Z');
-
     sunrise= sunrise.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'}, {timeZone: currentTime.timeZone});
     sunset = sunset.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'}, {timeZone: currentTime.timeZone});
 
