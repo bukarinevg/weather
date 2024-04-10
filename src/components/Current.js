@@ -3,7 +3,7 @@ import weatherCodeDescription from '../utils/weatherCodeDescription';
 import '../css/Current.css';
 
 function Current({location, currentWeather, currentTime}){
-
+    console.log('currentWeather', currentWeather, currentTime)
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
     let sunrise = new Date(currentWeather.sunrise + 'Z');
     let sunset = new Date(currentWeather.sunset + 'Z');

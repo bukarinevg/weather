@@ -1,3 +1,4 @@
+import { throwError } from "rxjs";
 
 const BASE_URL = 'https://app-weather-o0lf.onrender.com/public/';
 
@@ -13,12 +14,13 @@ export const getWeatherData = async (location) => {
   try {
     const response = await fetch(url);
     if (response.status !== 200) {
-      return Number(response.status);
+      throw  {status: response.status}; 
     }
     let data = response.json();
     return data;
   } catch (error) {
-    setError(response.status);
+    console.error('Error fetching data:', error);
+    throw error; 
   }
   return;
 };

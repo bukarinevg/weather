@@ -7,37 +7,44 @@ import Loading from './Loading';
 import Header from './Header';
 import Error from './Error';
 
+import { useQuery } from 'react-query';
+
 function WeatherApp() {
-  const [error, setError] = useState(null); 
-  const [weatherData, setWeatherData] = useState(null);
+  // const [error, setError] = useState(null); 
+  // const [weatherData, setWeatherData] = useState(null);
+  // const [location, setLocation] = useState(new URLSearchParams(useLocation().search).get('location') || null);
+  // const [loading, setLoading] = useState(true); // Added loading state
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setError(false);
+  //       setWeatherData(null);
+  //       setLoading(true);
+  //       let data = await getWeatherData(location);
+  //       if (typeof data === 'number') {
+  //         setError(response.status);
+  //         return;
+  //       }
+  //       setWeatherData(data);
+
+
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchData();
+  // }, [location]); 
+
+
   const [location, setLocation] = useState(new URLSearchParams(useLocation().search).get('location') || null);
-  const [loading, setLoading] = useState(true); // Added loading state
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setError(false);
-        setWeatherData(null);
-        setLoading(true);
-        let data = await getWeatherData(location);
-        if (typeof data === 'number') {
-          setError(response.status);
-          return;
-        }
-        setWeatherData(data);
+  const { data, error, isLoading, isError } = useQuery(['weatherData', location], () => getWeatherData(location));
+  console.log('data', isLoading, data, error, isError);
 
-
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [location]); 
-
-
-  if (error) {
+  if (isError) {
     return  ( 
       <div className="WeatherApp" >
         <Header setLocation={setLocation}></Header>
@@ -46,7 +53,7 @@ function WeatherApp() {
     );
   }
 
-  if (loading) {
+  if (isLoading) {
     return  ( 
       <div className="WeatherApp" >
         <Header setLocation={setLocation}></Header>
@@ -54,8 +61,9 @@ function WeatherApp() {
       </div>
     );
   }
-  const { location: dataLocation, data, time:currentTime } = weatherData || {};
-  const { current_weather: currentWeather, daily } = data || {};
+  const { location: dataLocation, data:weatherData, time:currentTime } = data || {};
+  console.log('dataLocation', dataLocation, weatherData, currentTime)
+  const { current_weather: currentWeather, daily } = weatherData || {};
 
   return (
       
