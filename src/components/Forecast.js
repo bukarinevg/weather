@@ -18,8 +18,8 @@ function Forecast({daily, currentTime}){
     return daily.sunrise.map((date, index) => (
       <tr key={date}>
         <td scope="row">{dateFormat(date)}</td>
-        <td>{daily.temperature_min[index]}°C</td>
         <td>{daily.temperature_max[index]}°C</td>
+        <td>{daily.temperature_min[index]}°C</td>
         <td>{weatherCodeDescription[daily.weather_code[index]]}</td>
         <td>{timeFormat(daily.sunrise[index])}</td>
         <td>{timeFormat(daily.sunset[index])}</td>
