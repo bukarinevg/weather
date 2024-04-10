@@ -1,7 +1,17 @@
 function Error({ error }) {
-  console.log('error', error);
+  let text = 'Error';
+  switch (error.status) {
+    case 404:
+      text = 'Location not found';
+      break;
+    case 500:
+      text = 'Try request again in a minute';
+      break;
+  }
   return (
-    <p>Error fetching data: </p>
+    <div className="alert alert-danger" role="alert">
+      {text} {error.status}
+    </div>
   );
 }
 

@@ -42,7 +42,6 @@ function WeatherApp() {
   const [location, setLocation] = useState(new URLSearchParams(useLocation().search).get('location') || null);
 
   const { data, error, isLoading, isError } = useQuery(['weatherData', location], () => getWeatherData(location));
-  console.log('data', isLoading, data, error, isError);
 
   if (isError) {
     return  ( 
@@ -62,7 +61,6 @@ function WeatherApp() {
     );
   }
   const { location: dataLocation, data:weatherData, time:currentTime } = data || {};
-  console.log('dataLocation', dataLocation, weatherData, currentTime)
   const { current_weather: currentWeather, daily } = weatherData || {};
 
   return (

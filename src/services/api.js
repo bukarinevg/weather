@@ -14,12 +14,11 @@ export const getWeatherData = async (location) => {
   try {
     const response = await fetch(url);
     if (response.status !== 200) {
-      throw  {status: response.status}; 
+      throw  {status: Number(response.status)}; 
     }
     let data = response.json();
     return data;
   } catch (error) {
-    console.error('Error fetching data:', error);
     throw error; 
   }
   return;
