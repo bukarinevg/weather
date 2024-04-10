@@ -1,4 +1,4 @@
-import  {Row, Col} from 'react-bootstrap';
+import windDirection from '../utils/windDirection';
 import weatherCodeDescription from '../utils/weatherCodeDescription';
 import '../css/Current.css';
 
@@ -8,6 +8,7 @@ function Current({location, currentWeather, currentTime}){
     let sunset = new Date(currentWeather.sunset + 'Z');
     sunrise= sunrise.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'}, {timeZone: currentTime.timeZone});
     sunset = sunset.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'}, {timeZone: currentTime.timeZone});
+    const windSpeed= Math.round(currentWeather.wind_speed )
 
     return ( 
         <header className="current-weather container mt-4">
@@ -27,6 +28,10 @@ function Current({location, currentWeather, currentTime}){
                             </div>
                         </div>
                         <ul className="widget-49-meeting-points">
+                            <li className="widget-49-meeting-item"><b>Wind Speed:</b> <span>{windSpeed} km/h</span></li>
+                            {
+                                windSpeed > 0 ? <li className="widget-49-meeting-item"><b>Wind Direction:</b> <span>{windDirection(currentWeather.wind_direction)}</span></li> : null
+                            }
                             <li className="widget-49-meeting-item"><b>Sunrise:</b> <span>{sunrise}</span></li>
                             <li className="widget-49-meeting-item"><b>Sunset:</b> <span>{sunset}</span></li>
 
