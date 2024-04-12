@@ -1,28 +1,19 @@
 import weatherCodeDescription from '../utils/weatherCodeDescription';
+import { TimeFormat, DateFormat } from '../services/DateTime';
 import '../css/Forecast.css';
 
-function Forecast({daily, currentTime}){
 
-  function dateFormat(inputDate){
-    let date = new Date(inputDate);
-    return date.toLocaleDateString("en-GB", { weekday: 'long',date:'number', month: 'long', day: 'numeric'});
-  }
-
-  function timeFormat(inputDate){
-    let date = new Date(inputDate);
-    return date.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'});
-  }
-
+function Forecast({daily}){
 
   function tableRows(daily){
     return daily.sunrise.map((date, index) => (
       <tr key={date}>
-        <td scope="row">{dateFormat(date)}</td>
+        <td scope="row">{DateFormat(date)}</td>
         <td>{daily.temperature_max[index]}°C</td>
         <td>{daily.temperature_min[index]}°C</td>
         <td>{weatherCodeDescription[daily.weather_code[index]]}</td>
-        <td>{timeFormat(daily.sunrise[index])}</td>
-        <td>{timeFormat(daily.sunset[index])}</td>
+        <td>{TimeFormat(daily.sunrise[index])}</td>
+        <td>{TimeFormat(daily.sunset[index])}</td>
       </tr>
     ))
   }

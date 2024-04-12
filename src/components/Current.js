@@ -1,14 +1,10 @@
 import windDirection from '../utils/windDirection';
 import weatherCodeDescription from '../utils/weatherCodeDescription';
+import { TimeFormat, timeFormat } from '../services/DateTime';
 import '../css/Current.css';
 
 function Current({location, currentWeather, currentTime}){
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
-    let sunrise = new Date(currentWeather.sunrise);
-    let sunset = new Date(currentWeather.sunset);
-    sunrise= sunrise.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'});
-    sunset = sunset.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'}, );
-
     const windSpeed= Math.round(currentWeather.wind_speed )
 
     return ( 
@@ -32,8 +28,8 @@ function Current({location, currentWeather, currentTime}){
                         {
                             windSpeed > 0 ? <p className="meeting-item"><b>Wind Direction:</b> <span>{windDirection(currentWeather.wind_direction)}</span></p> : null
                         }
-                        <p className="bullet"><b>Sunrise:</b> <span>{sunrise}</span></p>
-                        <p className="bullet"><b>Sunset:</b> <span>{sunset}</span></p>
+                        <p className="bullet"><b>Sunrise:</b> <span>{TimeFormat(currentWeather.sunrise)}</span></p>
+                        <p className="bullet"><b>Sunset:</b> <span>{TimeFormat(currentWeather.sunset)}</span></p>
                     </div>
                 </div>
             </div>

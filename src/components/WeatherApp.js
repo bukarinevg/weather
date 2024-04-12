@@ -47,7 +47,7 @@ function WeatherApp() {
           {
               <main className='container'>
                 <Current location={dataLocation} currentWeather={currentWeather} currentTime={currentTime} />
-                <Forecast daily={daily} currentTime={currentTime} />
+                <Forecast daily={daily} />
               </main>   
           }
         </div>
