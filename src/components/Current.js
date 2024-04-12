@@ -4,10 +4,11 @@ import '../css/Current.css';
 
 function Current({location, currentWeather, currentTime}){
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
-    let sunrise = new Date(currentWeather.sunrise + 'Z');
-    let sunset = new Date(currentWeather.sunset + 'Z');
-    sunrise= sunrise.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'}, {timeZone: currentTime.timeZone});
-    sunset = sunset.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'}, {timeZone: currentTime.timeZone});
+    let sunrise = new Date(currentWeather.sunrise);
+    let sunset = new Date(currentWeather.sunset);
+    sunrise= sunrise.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'});
+    sunset = sunset.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'}, );
+
     const windSpeed= Math.round(currentWeather.wind_speed )
 
     return ( 

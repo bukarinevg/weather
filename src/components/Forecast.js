@@ -4,13 +4,13 @@ import '../css/Forecast.css';
 function Forecast({daily, currentTime}){
 
   function dateFormat(inputDate){
-    let date = new Date(inputDate+ 'Z');
-    return date.toLocaleDateString("en-GB", { weekday: 'long',date:'number', month: 'long', day: 'numeric',  timeZone: currentTime.timeZone});
+    let date = new Date(inputDate);
+    return date.toLocaleDateString("en-GB", { weekday: 'long',date:'number', month: 'long', day: 'numeric'});
   }
 
   function timeFormat(inputDate){
-    let date = new Date(inputDate+ 'Z');
-    return date.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'}, {timeZone: currentTime.timeZone});
+    let date = new Date(inputDate);
+    return date.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit'});
   }
 
 
