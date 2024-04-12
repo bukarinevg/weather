@@ -11,42 +11,31 @@ function Current({location, currentWeather, currentTime}){
     const windSpeed= Math.round(currentWeather.wind_speed )
 
     return ( 
-        <header className="current-weather container mt-4">
-            <div className="card card-margin">
-                <div className="card-header no-border">
-                    <h5 className="card-title">{location} </h5>
+        <header className="current-weather mt-4">
+            <div className="current-card">
+                <div className="current-card-header ">
+                    <p className="">{location} </p>
                 </div>
-                <div className="card-body pt-0">
-                    <div className="widget-49">
-                        <div className="widget-49-title-wrapper">
-                            <div className="widget-49-date-primary">
-                                <span className="widget-49-date-day">{currentWeather.temperature}°C</span>
-                            </div>
-                            <div className="widget-49-meeting-info">
-                                <span className="widget-49-pro-title">Today: {weatherDescription}</span>
-                                <span className="widget-49-meeting-time">{currentTime.time} {currentTime.day_of_week}</span>
-                            </div>
+                <div className="current-card-body pt-0">
+                    <div className="current-card-info">
+                        <div className="current-card-temperature">
+                            <span className="date-day">{currentWeather.temperature}°C</span>
                         </div>
-                        <ul className="widget-49-meeting-points">
-                            <li className="widget-49-meeting-item"><b>Wind Speed:</b> <span>{windSpeed} km/h</span></li>
-                            {
-                                windSpeed > 0 ? <li className="widget-49-meeting-item"><b>Wind Direction:</b> <span>{windDirection(currentWeather.wind_direction)}</span></li> : null
-                            }
-                            <li className="widget-49-meeting-item"><b>Sunrise:</b> <span>{sunrise}</span></li>
-                            <li className="widget-49-meeting-item"><b>Sunset:</b> <span>{sunset}</span></li>
-
-                        </ul>
+                      
+                            <span className="pro-title">Today: {weatherDescription}</span>
+                            <span className="meeting-time">{currentTime.time} {currentTime.day_of_week}</span>
+    
+                    </div>
+                    <div className="current-card-bullets">
+                        <p className="bullet"><b>Wind Speed:</b> <span>{windSpeed} km/h</span></p>
+                        {
+                            windSpeed > 0 ? <p className="meeting-item"><b>Wind Direction:</b> <span>{windDirection(currentWeather.wind_direction)}</span></p> : null
+                        }
+                        <p className="bullet"><b>Sunrise:</b> <span>{sunrise}</span></p>
+                        <p className="bullet"><b>Sunset:</b> <span>{sunset}</span></p>
                     </div>
                 </div>
             </div>
-         
-            
-        {
-        /*             
-            <p>Weather Code: {currentWeather.weather_code}</p>
-            <p>Sunrise: {currentWeather.sunrise}</p>
-            <p>Sunset: {currentWeather.sunset}</p> */
-        }
         </header>
     );
 }

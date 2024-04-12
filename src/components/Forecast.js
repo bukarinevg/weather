@@ -28,13 +28,15 @@ function Forecast({daily, currentTime}){
   }
 
   return (
-    <main>
-      <h2>Forecast</h2>
+    <main className='forecast-block'>
+      <h2 className='forecast-title'>Daily forecast</h2>
       <div className="table-responsive">
-        <table className="table table-striped">
+        {/* table-striped-primary */}
+        <table className=" forecast-table outline-none ">
+          <caption>Weather forecast for the next 7 days</caption>
           <thead>
             <tr>
-              <th scope="col">Date</th>
+              <th className='outline-none' scope="col">Date</th>
               <th scope="col">Max Temp</th>
               <th scope="col">Min Temp</th>
               <th scope="col">Weather Code</th>

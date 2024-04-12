@@ -1,4 +1,4 @@
-.card-margin {
+/* .card-margin {
     margin-bottom: 1.875rem;
 }
 
@@ -303,4 +303,76 @@
 
 .widget-49 .widget-49-meeting-action a {
   text-transform: uppercase;
+} */
+
+
+.current-card{
+  background-color:  rgba(237, 241, 252, 1);
+  border-radius: 15px;
+  padding: 1rem;
+  text-align: left;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 2rem 0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+}
+
+@media screen and (max-width: 768px){
+  .current-card-body{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .current-card-bullets{
+    margin-left: 0;
+    margin-top: 1rem;;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .current-card-bullets{
+    margin-left: 3rem;
+  }
+  .current-card-body{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    padding: 2rem;
+  }
+}
+
+
+.current-card-header{
+  color:black ;
+  font-size: 2rem;
+  text-align: left;
+}
+.current-card-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 10rem;
+}
+
+.current-card-temperature{
+  background-color: rgba(0, 27, 255, 0.3);
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 1.5rem;
+  color: white;
+  height: 5rem;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-card-bullets{
+  font-size: 1rem;
 }

@@ -3,9 +3,8 @@ body, .App, #root, .WeatherApp {
   width: 100%;
 
 }
-
-.Current{
-  padding: 1rem;
+.outline-none{
+  outline: none;
 }
 
 .Loading {
@@ -56,47 +55,6 @@ body, .App, #root, .WeatherApp {
 }
 
 
-.current-weather .container {
-  /* font-family: 'Arial', sans-serif; */
-  color: #333;
-  background-color: #f2f2f2;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 350px;
-  margin: auto;
-}
 
-.current-weather .row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.current-weather .col {
-  flex-basis: 50%;
-}
-
-.current-weather .temperature {
-  font-size: 2em;
-  font-weight: bold;
-}
-
-.current-weather .weather-description {
-  text-align: right;
-  font-size: 1.2em;
-  color: #555;
-}
-
-.current-weather .time {
-  font-size: 0.9em;
-  color: #666;
-}
-
-.current-weather .location {
-  font-size: 1em;
-  color: #666;
-  margin: 10px 0;
-}
 
 
