@@ -309,7 +309,7 @@
 .current-card{
   background-color:  rgba(237, 241, 252, 1);
   border-radius: 15px;
-  padding: 1rem;
+  padding: 2rem;
   text-align: left;
   font-size: 1.5rem;
   color: rgba(0, 0, 0, 0.7);
@@ -322,26 +322,44 @@
 @media screen and (max-width: 768px){
   .current-card-body{
     display: flex;
-    justify-content: start;
-    align-items: start;
+    justify-content: space-between;
+    align-items: center;
     flex-direction: column;
     padding: 2rem;
   }
+
   .current-card-bullets{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+  /* .current-card-bullets{
     margin-left: 0;
     margin-top: 1rem;;
-  }
+  } */
 }
 
 @media screen and (min-width: 768px){
-  .current-card-bullets{
+  /* .current-card-bullets{
     margin-left: 3rem;
-  }
+  } */
   .current-card-body{
     display: flex;
-    justify-content: start;
-    align-items: start;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 2rem;
+  }
+
+  .current-card-bullets{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 2rem;
+    width: 60%;
   }
 }
 
@@ -361,13 +379,13 @@
 
 .current-card-temperature{
   background-color: rgba(0, 27, 255, 0.3);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: bold;
   border-radius: 50%;
   padding: 1.5rem;
   color: white;
-  height: 5rem;
-  width: 5rem;
+  height: 6rem;
+  width: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -375,4 +393,10 @@
 
 .current-card-bullets{
   font-size: 1rem;
+}
+
+.pro-title{
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  
 }

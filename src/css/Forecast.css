@@ -2,7 +2,9 @@
     margin: 2rem 0;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    
+    background-color: rgba(237, 241, 252, 1);
+    border-radius: 10px;
+    padding: 1rem;;   
 
 }
 
@@ -20,11 +22,15 @@
 .forecast-table table{
     width: 100%;
     border-collapse: collapse;
+    
 }
 
-.forecast-table tr{
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+.thead{
+    background-color: rgba(237, 241, 252, 1);
+    border-radius: 10px;
 }
+
 
 
 .forecast-table th{
@@ -41,22 +47,16 @@
     font-size: 1.3rem;
     font-weight: 500;
     color: rgba(0, 0, 0, 0.7);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
 }
 
 .forecast-table td:not(:last-child){
     border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-
-.thead{
-    background-color: rgba(237, 241, 252, 1);
-    border-radius: 10px;
+.forecast-table tr:not(:last-child){
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.forecast-block{ 
-    background-color: rgba(237, 241, 252, 1);
-    border-radius: 10px;
-}
 
 

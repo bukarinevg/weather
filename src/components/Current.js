@@ -13,13 +13,16 @@ function Current({location, currentWeather, currentTime}){
                 <div className="current-card-header ">
                     <p className="">{location} </p>
                 </div>
-                <div className="current-card-body pt-0">
+                <div className="current-card-body pt-2">
                     <div className="current-card-info">
                         <div className="current-card-temperature">
                             <span className="date-day">{currentWeather.temperature}°C</span>
                         </div>
                       
-                            <span className="pro-title">Today: {weatherDescription}</span>
+                            <span className="pro-title">
+                                <b>Currently: </b>
+                                {weatherDescription}
+                            </span>
                             <span className="meeting-time">{currentTime.time} {currentTime.day_of_week}</span>
     
                     </div>
