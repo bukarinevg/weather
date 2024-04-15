@@ -306,6 +306,12 @@
 } */
 
 
+.meeting-time{
+  /* color: #B1BAC5; */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+
+}
 .current-card{
   background-color:  rgba(237, 241, 252, 1);
   border-radius: 15px;
@@ -319,30 +325,32 @@
   
 }
 
-@media screen and (max-width: 768px){
-  .current-card-body{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    padding: 2rem;
-  }
 
+
+@media screen and (max-width: 773px){
   .current-card-bullets{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 2rem;
+    
   }
+}
 
-  .pro-title{
-    text-align: center;
+@media screen and (min-width: 773px){
+  .current-card-bullets{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 2rem;
+    /* width: 60%; */
+    flex-wrap: wrap;
   }
-  /* .current-card-bullets{
-    margin-left: 0;
-    margin-top: 1rem;;
-  } */
+  .bullet{
+    margin-right: 2rem;
+  }
 }
 
 @media screen and (min-width: 768px){
@@ -357,16 +365,37 @@
     padding: 2rem;
   }
 
-  .current-card-bullets{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    margin-top: 2rem;
-    width: 60%;
-  }
+
 }
 
+@media screen and (max-width: 768px){
+  .current-card-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+
+  .pro-title{
+    text-align: center;
+  }
+
+}
+
+.bullet{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.bullet span,b{
+  display: inline-block;
+  margin-right: 0.3rem;
+
+}
 
 .current-card-header{
   color:black ;
@@ -395,11 +424,11 @@
 }
 
 .current-card-bullets{
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
 
 .pro-title{
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   font-size: 1.5rem;
   
 }

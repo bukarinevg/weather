@@ -16,6 +16,7 @@ function WeatherApp() {
     retry: (failureCount, error) => {
       if (error.status === 404) return false;
       new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Retrying..., failureCount:', failureCount, 'error:', error, 'status:', error.status);
       return failureCount < 3;
     },
   });

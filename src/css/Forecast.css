@@ -25,6 +25,9 @@
     
 }
 
+.forecast-table tbody tr {
+   cursor: pointer;
+}
 
 .thead{
     background-color: rgba(237, 241, 252, 1);
