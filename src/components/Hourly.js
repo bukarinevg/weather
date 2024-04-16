@@ -22,7 +22,7 @@ function Hourly({hourly}){
                 <th>Time</th>
                 <th>Temperature</th>
                 <th className='weather'>Weather</th>
-                <th>Precipitation</th>
+                <th className='precipitation'>Precipitation</th>
             </tr>
             </thead>
             <tbody>{tableRows()}</tbody>
