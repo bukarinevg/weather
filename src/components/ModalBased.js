@@ -1,7 +1,7 @@
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-
+import '../css/ModalBased.css';
 
 function ModalBased({show, handleClose, handleSubmit, heading, body,footer}) {
 return (
