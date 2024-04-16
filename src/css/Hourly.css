@@ -1,0 +1,40 @@
+.hourly-table{
+    overflow: scroll;
+    width: 100%;
+    padding: 2rem;
+}
+
+.hourly-table table{
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+.hourly-table th{
+    padding: 0.3rem;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.hourly-table td{
+    padding: 0.3rem;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+}
+
+.hourly-table .weather{
+    min-width: 150px;
+} 
+
+.hourly-table td:not(:last-child){
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.hourly-table tr:not(:last-child){
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {  useLocation } from 'react-router-dom';
-import { getWeatherData } from '../services/api';
+import { getWeatherData } from '../services/WeatherAPI';
 import Current from './Current';
 import Forecast from './Forecast';
 import Loading from './Loading';
