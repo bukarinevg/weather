@@ -36,12 +36,20 @@
 
 @media screen and (min-width: 992px){
     .forecast-table th{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         padding: 1rem;
     }
     .forecast-table td{
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         padding: 1rem;
+    }
+
+    .forecast-table th:not(:last-child){
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .forecast-table th{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .forecast-table td:not(:last-child){
@@ -63,6 +71,14 @@
         padding: 0.4rem;
     }
 
+    .forecast-table th:not(:last-child){
+        border-right: 0.5px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .forecast-table th{
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+    }
+
     .forecast-table td:not(:last-child){
         border-right: 0.5px solid rgba(0, 0, 0, 0.05);
     }
@@ -80,7 +96,6 @@
 
 .forecast-table td{
     text-align: left;
-    font-weight: 500;
     color: rgba(0, 0, 0, 0.7);
     /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
 }
