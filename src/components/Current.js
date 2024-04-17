@@ -8,7 +8,7 @@ function Current({location, currentWeather, currentTime}){
     const windSpeed= Math.round(currentWeather.wind_speed )
 
     return ( 
-        <header className="current-weather mt-4">
+        <article className="current-weather mt-4">
             <div className="current-card">
                 <div className="current-card-header ">
                     <p className="">{location} </p>
@@ -38,7 +38,7 @@ function Current({location, currentWeather, currentTime}){
                     </div>
                 </div>
             </div>
-        </header>
+        </article>
     );
 }
 
