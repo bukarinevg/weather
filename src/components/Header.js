@@ -21,7 +21,7 @@ function Header({setLocation}){
                 <Navbar.Brand href="#home">Weather</Navbar.Brand>
                 <Form className="d-flex justify-content-right"  onSubmit={handleFormSubmit}>
                     <FormControl type="text" placeholder="Search location..." className="" onChange={handleInputChange} />
-                    <Button className='ms-2 btn btn-primary' variant="outline-info" type="submit">Search</Button>
+                    <Button className='ms-2 btn ' variant="outline-info" type="submit">Search</Button>
                 </Form>
             </Container>
         </Navbar>
