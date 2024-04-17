@@ -121,10 +121,11 @@
 }
 
 .current-card-bullets{
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .pro-title{
   margin-bottom: 1rem;
-  font-weight: 450;
+  font-weight: 500  ;
+  
 }
