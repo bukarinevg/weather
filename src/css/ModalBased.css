@@ -1,6 +1,7 @@
 .modal-body{
-    overflow: scroll;
+    overflow: auto;
 }
+
 .modal-dialog{
     margin: 100px auto;
 }
