@@ -4,9 +4,9 @@ body, .App, #root, .WeatherApp {
 
 }
 
-/* .WeatherApp{
-  background-image: url();
-} */
+.WeatherApp{
+  background-image: url('https://images.unsplash.com/photo-1591804515164-0820222f7495?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
 
 
 .App {
@@ -21,8 +21,8 @@ body, .App, #root, .WeatherApp {
 
 @media (prefers-color-scheme: dark) {
   * {
-    scrollbar-width: thin;
-    scrollbar-color: #2e2d2d transparent;
+    /* scrollbar-width: thin; */
+    scrollbar-color: #7e7d7d transparent;
   }
 
 } 
