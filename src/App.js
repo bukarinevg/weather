@@ -11,7 +11,6 @@ const queryClient = new QueryClient();
 
 function App() {
   return (
-    
     <Router>
       <Routes>
         <Route path="/" element={
