@@ -20,6 +20,15 @@
         font-size: 1.3rem;
         padding: 1rem;
     }
+
+    .hourly-table td:not(:last-child){
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .hourly-table tr:not(:last-child){
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
 }
 
 @media screen and (max-width: 992px){
@@ -31,6 +40,15 @@
         font-size: 0.8rem;
         padding: 0.4rem;
     }
+
+    .hourly-table td:not(:last-child){
+        border-right: 0.5px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .hourly-table tr:not(:last-child){
+        border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+    }
+    
 }
 
 .hourly-table th{
@@ -50,13 +68,7 @@
     min-width: 150px;
 } 
 
-.hourly-table td:not(:last-child){
-    border-right: 1px solid rgba(0, 0, 0, 0.1);
-}
 
-.hourly-table tr:not(:last-child){
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
 .hourly-table .precipitation{
     max-width: 100%;   
 }
