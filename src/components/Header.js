@@ -16,7 +16,7 @@ function Header({setLocation}){
     }
     
     return (
-        <Navbar bg="primary" variant="dark">
+        <Navbar variant="dark">
             <Container className="d-flex justify-content-between align-items-center">
                 <Navbar.Brand href="#home">Weather</Navbar.Brand>
                 <Form className="d-flex justify-content-right"  onSubmit={handleFormSubmit}>
