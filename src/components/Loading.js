@@ -1,4 +1,5 @@
 import {TailSpin} from 'react-loader-spinner';
+import '../css/Loading.css'; 
 
 function Loading() {
 return (
