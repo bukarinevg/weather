@@ -19,16 +19,16 @@ function Forecast({daily}){
     return daily.sunrise.map((date, index) => (
       <tr key={index} onClick={() =>hourlyWeather(index)}>
         <td scope="row">{DateFormat(date)}</td>
+        <td className='weather-description'>          
+          <img  src={`/weather/images/${weatherImage(daily.weather_code[index], isDay(daily.sunrise[index], daily.sunset[index], daily.hourly[index].time[12]))}`} 
+          alt={weatherCodeDescription[daily.weather_code[index]]} />
+          <span>{weatherCodeDescription[daily.weather_code[index]]}</span> 
+        </td>
         <td>{daily.temperature_max[index]}°C</td>
         <td>{daily.temperature_min[index]}°C</td>
         <td>{daily.precipitation_sum[index]}%</td>
         <td>{TimeFormat(daily.sunrise[index])}</td>
         <td>{TimeFormat(daily.sunset[index])}</td>
-        <td className='weather'>          
-          <img  src={`/weather/images/${weatherImage(daily.weather_code[index], isDay(daily.sunrise[index], daily.sunset[index], daily.hourly[index].time[12]))}`} 
-          alt={weatherCodeDescription[daily.weather_code[index]]} />
-          {weatherCodeDescription[daily.weather_code[index]]} 
-        </td>
       </tr>
     ))
   }
@@ -49,12 +49,12 @@ function Forecast({daily}){
           <thead>
             <tr>
               <th className='outline-none' scope="col">Date</th>
+              <th scope="col" className=''>Weather</th>
               <th scope="col">Max Temp</th>
               <th scope="col">Min Temp</th>
               <th scope="col">Precipitation</th>
               <th scope="col">Sunrise</th>
               <th scope="col">Sunset</th>
-              <th scope="col" className=''>Weather</th>
             </tr>
           </thead>
           <tbody>
