@@ -1,4 +1,8 @@
 
+.scrolled-forecast{
+    overflow-x: scroll;
+}
+
 .forecast-block{
     margin: 2rem 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -11,7 +15,6 @@
 }
 
 .forecast-table{
-    overflow: auto;
     width: 100%;
     padding: 2rem;
 }
