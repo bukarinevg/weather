@@ -1,6 +1,8 @@
 import windDirection from '../utils/windDirection';
 import weatherCodeDescription from '../utils/weatherCodeDescription';
 import { TimeFormat, timeFormat } from '../services/DateTime';
+import isDay from '../services/IsDay';
+import weatherImage from '../utils/weatherImage';
 import '../css/Current.css';
 
 function Current({location, currentWeather, currentTime}){
@@ -8,7 +10,7 @@ function Current({location, currentWeather, currentTime}){
     const windSpeed= Math.round(currentWeather.wind_speed )
 
     return ( 
-        <article className="current-weather mt-4">
+        <article className="current-weather mt-4" >
             <div className="current-card">
                 <div className="current-card-header ">
                     <p className="">{location} </p>
@@ -17,7 +19,11 @@ function Current({location, currentWeather, currentTime}){
                     <div className="current-card-info">
                         
                         <div className="current-card-temperature mb-2">
-                            <span className="date-day">{currentWeather.temperature}°C</span>
+                           
+                            <img  src={`/weather/images/${weatherImage(currentWeather.weather_code, isDay(currentWeather.sunset, currentWeather.sunrise, currentTime.time))}`} alt="weather icon" />
+                      
+    
+                            <span className="date-day" >{currentWeather.temperature}°C</span>
                         </div>
                         
                         <span className="pro-title">{weatherDescription}</span>

@@ -116,14 +116,29 @@
   font-size: 1.3rem;
   font-weight: bold;
   border-radius: 50%;
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
   color: white;
   height: 6rem;
   width: 6rem;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: start;
+  flex-direction: column;
 }
+
+.current-card-temperature img {
+  margin-top: -1rem;
+
+  max-height: 100%; /* Limit image size to fit in the circle */
+  max-width: 100%; /* Limit image width to maintain aspect ratio */
+}
+
+.current-card-temperature .date-day {
+  position: absolute;
+  margin-top: 3.3rem;; /* Adjust as necessary for spacing from the bottom */
+}
+
+
 
 .current-card-bullets{
   font-size: 1.2rem;

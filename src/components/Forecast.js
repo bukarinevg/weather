@@ -34,7 +34,7 @@ function Forecast({daily}){
 
 
   return (
-    <main className='forecast-block'>
+    <article className='forecast-block'>
       <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<Hourly hourly={hourly}/>}/>
       <h2 className='forecast-title'>Daily forecast</h2>
       <div className="table-responsive">
@@ -56,7 +56,7 @@ function Forecast({daily}){
           </tbody>
         </table>
       </div>
-    </main>
+    </article>
   )
 }
 
