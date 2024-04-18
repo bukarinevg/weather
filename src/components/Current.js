@@ -21,7 +21,7 @@ function Current({location, currentWeather, currentTime}){
                         
                         <div className="current-card-temperature mb-2">
                            
-                            <img  src={`/weather/images/${weatherImage(currentWeather.weather_code, isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time))}`} alt={weatherDescription} />
+                            <img  src={weatherImage(currentWeather.weather_code, isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time))} alt={weatherDescription} />
                       
     
                             <span className="date-day" >{currentWeather.temperature}°C</span>

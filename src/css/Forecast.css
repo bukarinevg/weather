@@ -122,6 +122,13 @@
 .forecast-table .weather-description {
     display: flex;
     flex-direction: row ;
-    width: fit-content;
+    width: 100%;
     /* justify-content: center; */
+}
+
+.description-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
