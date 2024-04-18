@@ -1,6 +1,8 @@
 import weatherCodeDescription from '../utils/weatherCodeDescription';
 import { TimeFormat, DateFormat } from '../services/DateTime';
 import { useState } from 'react';
+import weatherImage from '../utils/weatherImage';
+import isDay from '../services/IsDay';
 import ModalBased from './ModalBased';
 import '../css/Forecast.css';
 import Hourly from './Hourly';
@@ -19,10 +21,14 @@ function Forecast({daily}){
         <td scope="row">{DateFormat(date)}</td>
         <td>{daily.temperature_max[index]}°C</td>
         <td>{daily.temperature_min[index]}°C</td>
-        <td>{weatherCodeDescription[daily.weather_code[index]]}</td>
         <td>{daily.precipitation_sum[index]}%</td>
         <td>{TimeFormat(daily.sunrise[index])}</td>
         <td>{TimeFormat(daily.sunset[index])}</td>
+        <td className='weather'>          
+          <img  src={`/weather/images/${weatherImage(daily.weather_code[index], isDay(daily.sunrise[index], daily.sunset[index], daily.hourly[index].time[12]))}`} 
+          alt={weatherCodeDescription[daily.weather_code[index]]} />
+          {weatherCodeDescription[daily.weather_code[index]]} 
+        </td>
       </tr>
     ))
   }
@@ -34,9 +40,9 @@ function Forecast({daily}){
 
 
   return (
-    <main className='forecast-block'>
+    <article className='forecast-block'>
       <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<Hourly hourly={hourly}/>}/>
-      <h2 className='forecast-title'>Daily forecast</h2>
+      <h4 className='forecast-title'>Daily forecast</h4>
       <div className="table-responsive">
         <table className=" forecast-table outline-none ">
           <caption>Weather forecast for the next 7 days, hourly forecast accesible on click </caption>
@@ -45,10 +51,10 @@ function Forecast({daily}){
               <th className='outline-none' scope="col">Date</th>
               <th scope="col">Max Temp</th>
               <th scope="col">Min Temp</th>
-              <th scope="col" className='weather-code'>Weather Code</th>
               <th scope="col">Precipitation</th>
               <th scope="col">Sunrise</th>
               <th scope="col">Sunset</th>
+              <th scope="col" className=''>Weather</th>
             </tr>
           </thead>
           <tbody>
@@ -56,7 +62,7 @@ function Forecast({daily}){
           </tbody>
         </table>
       </div>
-    </main>
+    </article>
   )
 }
 

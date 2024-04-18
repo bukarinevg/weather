@@ -1,6 +1,8 @@
 import windDirection from '../utils/windDirection';
 import weatherCodeDescription from '../utils/weatherCodeDescription';
 import { TimeFormat, timeFormat } from '../services/DateTime';
+import isDay from '../services/IsDay';
+import weatherImage from '../utils/weatherImage';
 import '../css/Current.css';
 
 function Current({location, currentWeather, currentTime}){
@@ -8,8 +10,9 @@ function Current({location, currentWeather, currentTime}){
     const windSpeed= Math.round(currentWeather.wind_speed )
 
     return ( 
-        <article className="current-weather mt-4">
+        <article className="current-weather mt-4" >
             <div className="current-card">
+                <h4 className="current-title">Current Weather</h4>
                 <div className="current-card-header ">
                     <p className="">{location} </p>
                 </div>
@@ -17,12 +20,16 @@ function Current({location, currentWeather, currentTime}){
                     <div className="current-card-info">
                         
                         <div className="current-card-temperature mb-2">
-                            <span className="date-day">{currentWeather.temperature}°C</span>
+                           
+                            <img  src={`/weather/images/${weatherImage(currentWeather.weather_code, isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time))}`} alt={weatherDescription} />
+                      
+    
+                            <span className="date-day" >{currentWeather.temperature}°C</span>
                         </div>
                         
                         <span className="pro-title">{weatherDescription}</span>
                     </div>
-                    <span className="meeting-time">{currentTime.time} {currentTime.day_of_week}</span>
+                    <span className="current-time">{currentTime.time} {currentTime.day_of_week}</span>
                     <div className="current-card-bullets">
                         <p className="bullet">
                             <b>Wind Speed: </b>
