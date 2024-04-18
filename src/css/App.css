@@ -28,17 +28,24 @@ main{
 
 
 
-  * {
-    /* scrollbar-width: thin; */
-    scrollbar-color: #7e7d7d transparent;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: #7e7d7d transparent;
-    width: 10px;
-  }
+ 
+  /* width */
+::-webkit-scrollbar {
+  /* width:0rem; */
+  /* background: #888; */
+}
 
+/* Track */
+/* ::-webkit-scrollbar-track {
+  background: #7e7d7d transparent;
+  border-radius: 10px;
+} */
 
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+} */
 
 
 
