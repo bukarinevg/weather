@@ -1,5 +1,4 @@
-function isDay(sunset, sunrise, currentTime) {
-
+function isDay(sunrise,sunset, currentTime) {
     return currentTime > sunrise && currentTime < sunset;
 }
 

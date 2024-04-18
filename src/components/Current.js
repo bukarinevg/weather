@@ -12,6 +12,7 @@ function Current({location, currentWeather, currentTime}){
     return ( 
         <article className="current-weather mt-4" >
             <div className="current-card">
+                <h4 className="current-title">Current Weather</h4>
                 <div className="current-card-header ">
                     <p className="">{location} </p>
                 </div>
@@ -20,7 +21,7 @@ function Current({location, currentWeather, currentTime}){
                         
                         <div className="current-card-temperature mb-2">
                            
-                            <img  src={`/weather/images/${weatherImage(currentWeather.weather_code, isDay(currentWeather.sunset, currentWeather.sunrise, currentTime.time))}`} alt="weather icon" />
+                            <img  src={`/weather/images/${weatherImage(currentWeather.weather_code, isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time))}`} alt={weatherDescription} />
                       
     
                             <span className="date-day" >{currentWeather.temperature}°C</span>
@@ -28,7 +29,7 @@ function Current({location, currentWeather, currentTime}){
                         
                         <span className="pro-title">{weatherDescription}</span>
                     </div>
-                    <span className="meeting-time">{currentTime.time} {currentTime.day_of_week}</span>
+                    <span className="current-time">{currentTime.time} {currentTime.day_of_week}</span>
                     <div className="current-card-bullets">
                         <p className="bullet">
                             <b>Wind Speed: </b>
