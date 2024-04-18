@@ -19,10 +19,10 @@ function Forecast({daily}){
     return daily.sunrise.map((date, index) => (
       <tr key={index} onClick={() =>hourlyWeather(index)}>
         <td scope="row">{DateFormat(date)}</td>
-        <td className='weather'>          
+        <td className='weather-description'>          
           <img  src={`/weather/images/${weatherImage(daily.weather_code[index], isDay(daily.sunrise[index], daily.sunset[index], daily.hourly[index].time[12]))}`} 
           alt={weatherCodeDescription[daily.weather_code[index]]} />
-          {weatherCodeDescription[daily.weather_code[index]]} 
+          <span>{weatherCodeDescription[daily.weather_code[index]]}</span> 
         </td>
         <td>{daily.temperature_max[index]}°C</td>
         <td>{daily.temperature_min[index]}°C</td>
