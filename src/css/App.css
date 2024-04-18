@@ -7,6 +7,7 @@ body, .App, #root, .WeatherApp {
 .WeatherApp{
   background-image: url('https://images.unsplash.com/photo-1558124475-f44023658e4a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-size: cover;
+  opacity: 0.9;
 }
 
 
@@ -18,37 +19,28 @@ body, .App, #root, .WeatherApp {
 .body, .WeatherApp{
   overflow: auto;
 
-
 }
 
-main{
-  opacity: 0.95;
+.block{
+  background-color: rgb(174, 174, 174, 0.95);
+  border-radius: 20px;
 }
-
-
-
-
- 
-
-
-
-
 
 /* width */
 ::-webkit-scrollbar {
-  height: 10px;
+  height: 3px;
   width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px rgb(191, 191, 191); 
   border-radius: 10px;
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(151, 151, 151); 
+  background: rgb(116, 115, 115); 
   border-radius: 10px;
 }
 

@@ -10,7 +10,7 @@ function Current({location, currentWeather, currentTime}){
     const windSpeed= Math.round(currentWeather.wind_speed )
 
     return ( 
-        <article className="current-weather mt-4" >
+        <article className="current-weather block mt-4" >
             <div className="current-card">
                 <h4 className="current-title">Current Weather</h4>
                 <div className="current-card-header ">

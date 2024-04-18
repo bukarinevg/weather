@@ -40,7 +40,7 @@ function Forecast({daily}){
 
 
   return (
-    <article className='forecast-block'>
+    <article className='forecast-block block'>
       <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<Hourly hourly={hourly}/>}/>
       <h4 className='forecast-title'>Daily forecast</h4>
       <div className="table-responsive">
