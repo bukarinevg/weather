@@ -15,7 +15,7 @@ function weatherImage(weatherCode, isDay) {
 
     let code = Object.keys(imagesCode).find(key => imagesCode[key].codes.includes(weatherCode));
     if(!code) return null;
-    return `${code}${isDay ? 'd' : 'n'}.png`;
+    return `/weather/images/${code}${isDay ? 'd' : 'n'}.png`;
 }
   
 

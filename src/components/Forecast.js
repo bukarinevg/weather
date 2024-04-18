@@ -21,11 +21,11 @@ function Forecast({daily}){
         <td scope="row">{DateFormat(date)}</td>
         <td className='weather-description'>     
           <div className='image'>
-            <img   src={`/weather/images/${weatherImage(daily.weather_code [index], isDay(daily.sunrise[index], daily.sunset[index], daily.hourly[index].time[12]))}`} 
+            <img   src={`${weatherImage(daily.weather_code [index], isDay(daily.sunrise[index], daily.sunset[index], daily.hourly[index].time[12]))}`} 
               alt={weatherCodeDescription[daily.weather_code[index]]} 
             />
           </div> 
-          <div>
+          <div className='description-text' >
             <span>{weatherCodeDescription[daily.weather_code[index]]}</span> 
           </div>     
         </td>
@@ -47,7 +47,7 @@ function Forecast({daily}){
   return (
     <article className='forecast-block block'>
       <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<Hourly hourly={hourly}/>}/>
-      <h4 className='forecast-title'>Daily forecast</h4>
+      <h4 className='forecast-title'>Daily forecast<image src='/weather/images/arrow.svg' width={100} height={20} /></h4>
       <div className='scrolled-forecast'>
         <table className="forecast-table outline-none scroller">
           <caption>Weather forecast for the next 7 days, hourly forecast accesible on click </caption>
