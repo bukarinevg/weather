@@ -27,7 +27,7 @@ main{
 
 
 
-@media (prefers-color-scheme: dark) {
+
   * {
     /* scrollbar-width: thin; */
     scrollbar-color: #7e7d7d transparent;
@@ -35,9 +35,10 @@ main{
   
   *::-webkit-scrollbar-track {
     background: #7e7d7d transparent;
+    width: 10px;
   }
 
-} 
+
 
 
 
