@@ -44,7 +44,7 @@ function Forecast({daily}){
       <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<Hourly hourly={hourly}/>}/>
       <h4 className='forecast-title'>Daily forecast</h4>
       <div className="table-responsive">
-        <table className=" forecast-table outline-none scroller">
+        <table className="forecast-table outline-none scroller">
           <caption>Weather forecast for the next 7 days, hourly forecast accesible on click </caption>
           <thead>
             <tr>
