@@ -1,3 +1,9 @@
+* {
+    /* scrollbar-width: thin; */
+    scrollbar-color: #7e7d7d transparent;
+    scrollbar-width: thin;
+}
+
 .forecast-block{
     margin: 2rem 0;
     border-radius: 10px;
