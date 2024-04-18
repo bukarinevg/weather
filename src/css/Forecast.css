@@ -129,3 +129,10 @@
 .forecast-table .weather-description span{
    white-space: nowrap;
 }
+
+.scroller {
+    width: 300px;
+    height: 100px;
+    overflow-x: scroll;
+    scrollbar-color: #007 #bada55;
+  }
