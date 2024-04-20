@@ -1,19 +1,22 @@
 import weatherCodeDescription from '../utils/weatherCodeDescription';
 import { TimeFormat, DateFormat } from '../services/DateTime';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import weatherImage from '../utils/weatherImage';
 import isDay from '../services/IsDay';
 import ModalBased from './ModalBased';
 import '../css/Forecast.css';
 import Hourly from './Hourly';
+import { WeatherContext} from './WeatherApp';
 
 
-function Forecast({daily}){
-
+function Forecast(){
   const [show, setShow] = useState(false);
   const [hourly, setHourly] = useState('');
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const {daily:daily} = useContext(WeatherContext);
+
 
   function tableRows(){
     return daily.sunrise.map((date, index) => (
@@ -47,7 +50,7 @@ function Forecast({daily}){
   return (
     <article className='forecast-block block'>
       <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<Hourly hourly={hourly}/>}/>
-      <h4 className='forecast-title'>Daily forecast<image src='/weather/images/arrow.svg' width={100} height={20} /></h4>
+      <h4 className='forecast-title'>Daily forecast<img src='/weather/images/arrow.svg' width={100} height={20} /></h4>
       <div className='scrolled-forecast'>
         <table className="forecast-table outline-none scroller">
           <caption>Weather forecast for the next 7 days, hourly forecast accesible on click </caption>

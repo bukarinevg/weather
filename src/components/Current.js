@@ -4,10 +4,15 @@ import { TimeFormat, timeFormat } from '../services/DateTime';
 import isDay from '../services/IsDay';
 import weatherImage from '../utils/weatherImage';
 import '../css/Current.css';
+import { useState, useContext, useEffect } from 'react';
+import { WeatherContext } from './WeatherApp';
 
-function Current({location, currentWeather, currentTime}){
+function Current({location, currentTime}){
+    const { current_weather: currentWeather } = useContext(WeatherContext);
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
     const windSpeed= Math.round(currentWeather.wind_speed )
+
+    // const forecast = 
 
     return ( 
         <article className="current-weather block mt-4" >
