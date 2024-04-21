@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { DateFormat } from '../services/DateTime';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -34,8 +35,8 @@ const WeatherSlider = ({ forecasts }) => {
       <Slider {...settings}>
         {forecasts.map((forecast, index) => (
           <div key={index} style={{ padding: '10px', textAlign: 'center' }}>
-            <h2>{forecast.temp}°C</h2>
-            <p>{forecast.time}</p>
+            <h2>{forecast.temperature}°C</h2>
+            <p>{DateFormat(forecast.time)}</p>
           </div>
         ))}
       </Slider>

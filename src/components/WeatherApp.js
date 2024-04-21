@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import {  useLocation } from 'react-router-dom';
 import { getWeatherData } from '../services/WeatherAPI';
+import WeatherContext from '../contexts/WeatherContext'; 
 import Current from './Current';
 import Forecast from './Forecast';
 import Loading from './Loading';
@@ -8,6 +9,7 @@ import Header from './Header';
 import Error from './Error';
 
 import { useQuery } from 'react-query';
+
 
 function WeatherApp() {
   const [location, setLocation] = useState(new URLSearchParams(useLocation().search).get('location') || null);
@@ -39,18 +41,19 @@ function WeatherApp() {
     );
   }
   const { location: dataLocation, data:weatherData, time:currentTime } = data || {};
-  const { current_weather: currentWeather, daily } = weatherData || {};
 
   return (
       
         <div className="WeatherApp" >
           <Header setLocation={setLocation}/>
-          {
-              <main className='container'>
-                <Current location={dataLocation} currentWeather={currentWeather} currentTime={currentTime} />
-                <Forecast daily={daily} />
-              </main>   
-          }
+          
+            <main className='container'>
+              <WeatherContext.Provider value={weatherData}>
+                <Current location={dataLocation}  currentTime={currentTime} />
+                 <Forecast />
+              </WeatherContext.Provider>
+          </main>   
+          
         </div>
   );
 }
