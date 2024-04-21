@@ -6,7 +6,7 @@ import isDay from '../services/IsDay';
 import ModalBased from './ModalBased';
 import '../css/Forecast.css';
 import Hourly from './Hourly';
-import { WeatherContext} from './WeatherApp';
+import WeatherContext from '../contexts/WeatherContext';
 
 
 function Forecast(){
@@ -32,8 +32,8 @@ function Forecast(){
             <span>{weatherCodeDescription[daily.weather_code[index]]}</span> 
           </div>     
         </td>
-        <td>{daily.temperature_max[index]}°C</td>
-        <td>{daily.temperature_min[index]}°C</td>
+        <td>{Math.round(daily.temperature_max[index])}°C</td>
+        <td>{Math.round(daily.temperature_min[index])}°C</td>
         <td>{daily.precipitation_sum[index]}%</td>
         <td>{TimeFormat(daily.sunrise[index])}</td>
         <td>{TimeFormat(daily.sunset[index])}</td>
@@ -50,7 +50,10 @@ function Forecast(){
   return (
     <article className='forecast-block block'>
       <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<Hourly hourly={hourly}/>}/>
-      <h4 className='forecast-title'>Daily forecast<img src='/weather/images/arrow.svg' width={100} height={20} /></h4>
+      <h4 className='forecast-title'>
+        Daily forecast
+        <img src='/weather/images/arrow.svg' width={100} height={20} className='show-more' />
+      </h4>
       <div className='scrolled-forecast'>
         <table className="forecast-table outline-none scroller">
           <caption>Weather forecast for the next 7 days, hourly forecast accesible on click </caption>

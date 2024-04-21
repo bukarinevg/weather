@@ -5,15 +5,15 @@ import isDay from '../services/IsDay';
 import weatherImage from '../utils/weatherImage';
 import '../css/Current.css';
 import { useState, useContext, useEffect } from 'react';
-import { WeatherContext } from './WeatherApp';
+import WeatherContext from '../contexts/WeatherContext';
 
 function Current({location, currentTime}){
-    const { current_weather: currentWeather } = useContext(WeatherContext);
+    const { current_weather: currentWeather, daily } = useContext(WeatherContext);
+    console.log(); 
+    const dayForecast = [];
+
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
     const windSpeed= Math.round(currentWeather.wind_speed )
-
-    // const forecast = 
-
     return ( 
         <article className="current-weather block mt-4" >
             <div className="current-card">
@@ -29,7 +29,7 @@ function Current({location, currentTime}){
                             <img  src={weatherImage(currentWeather.weather_code, isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time))} alt={weatherDescription} />
                       
     
-                            <span className="date-day" >{currentWeather.temperature}°C</span>
+                            <span className="date-day" >{Math.round(currentWeather.temperature)}°C</span>
                         </div>
                         
                         <span className="pro-title">{weatherDescription}</span>

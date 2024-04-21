@@ -26,6 +26,24 @@ body, .App, #root, .WeatherApp {
   border-radius: 20px;
 }
 
+@keyframes slideIn {
+  from {
+      transform: translateX(-40%);
+  }
+  to {
+      transform: translateX(calc(30%));
+  }
+}
+
+@keyframes blinking {
+  0%, 100% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   height: 3px;
