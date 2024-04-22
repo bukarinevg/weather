@@ -1,8 +1,8 @@
 import { timeFormat } from '../services/DateTime';
 import weatherCodeDescription from '../utils/weatherCodeDescription';
-import '../css/Hourly.css';
+import '../css/HourlyForecast.css';
 
-function Hourly({hourly}){
+function HourlyForecast({hourly}){
 
     function tableRows(){
         return hourly.time.map((time, index) => index % 3 == 0 ? (
@@ -30,4 +30,4 @@ function Hourly({hourly}){
     )
 }
 
-export default Hourly
+export default HourlyForecast

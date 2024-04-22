@@ -6,7 +6,7 @@ import weatherCodeDescription from '../utils/weatherCodeDescription';
 import weatherImage from '../utils/weatherImage';
 import isDay from '../services/IsDay';
 import ModalBased from './ModalBased';
-import Hourly from './Hourly';
+import HourlyForecast from './HourlyForecast';
 
 
 function Forecast(){
@@ -49,7 +49,7 @@ function Forecast(){
 
   return (
     <article className='forecast_block block'>
-      <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<Hourly hourly={hourly}/>}/>
+      <ModalBased show={show} handleClose={handleClose} heading='hourly forecast' body={<HourlyForecast hourly={hourly}/>}/>
       <h4 className='forecast_title'>
         Daily forecast
         <img src='/weather/images/arrow.svg' width={100} height={20} className='show-more' />
