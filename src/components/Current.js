@@ -1,4 +1,4 @@
-import '../css/Current.css';
+import '../scss/Current.scss';
 import {  useContext } from 'react';
 import WeatherContext from '../contexts/WeatherContext';
 import windDirection from '../utils/windDirection';
@@ -38,44 +38,44 @@ function Current({location, currentTimeData}){
     const windSpeed= Math.round(currentWeather.wind_speed );
 
     return ( 
-        <article className="current-weather block mt-4" >
-            <h4 className="current-weather_title">Current Weather</h4>
-            <div className="current-weather_header ">
-                <p className="">{location} </p>
-            </div>
-            <div className="current-weather_body pt-2">
-                <div className="current-weather_info">
+        <article className="current-weather block" >
+        <h4 className="current-weather__title">Current Weather</h4>
+        <div className="current-weather__header ">
+            <p className="">{location} </p>
+        </div>
+        <div className="current-weather__body pt-2">
+            <div className="current-weather__info">
+                
+                <div className="current-weather__temperature mb-2">
                     
-                    <div className="current-weather_temperature mb-2">
-                        
-                        <img  src={weatherImage(currentWeather.weather_code, isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time))} alt={weatherDescription} />
-                    
+                    <img  src={weatherImage(currentWeather.weather_code, isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time))} alt={weatherDescription} />
+                
 
-                        <span className="date-day" >{Math.round(currentWeather.temperature)}°C</span>
-                    </div>
-                    
-                    <span className="pro-title">{weatherDescription}</span>
+                    <span className="date-day" >{Math.round(currentWeather.temperature)}°C</span>
                 </div>
-                <span className="current-weather_time">{currentTimeData.time} {currentTimeData.day_of_week}</span>
-                <div className="current-weather_bullets">
-                    <p className="bullet">
-                        <b>Wind Speed: </b>
-                            <span>{windSpeed} km/h</span>
-                    </p>
-                    {
-                        windSpeed > 0 ? <p className="bullet"><b>Wind Direction:</b> <span>{windDirection(currentWeather.wind_direction)}</span></p> : null
-                    }
-                    <p className="bullet"><b>Precipitation:</b> <span>{currentWeather.precipitation}%</span></p>
-                    <p className="bullet"><b>Sunrise/Sunset:</b> <span>{timeFormat(currentWeather.sunrise)}/{timeFormat(currentWeather.sunset)}</span>
-                    </p>
-                    
-                </div>
+                
+                <span className="current-weather__description">{weatherDescription}</span>
             </div>
-            <HourlyCurrentContext.Provider value={dayForecast}>
-                <HourlyCurrent forecasts={dayForecast} />
-            </HourlyCurrentContext.Provider>
+            <span className="current-weather__time">{currentTimeData.time} {currentTimeData.day_of_week}</span>
+            <div className="current-weather__bullets">
+                <p className="current-weather__bullet">
+                    <b>Wind Speed: </b>
+                        <span>{windSpeed} km/h</span>
+                </p>
+                {
+                    windSpeed > 0 ? <p className="current-weather__bullet"><b>Wind Direction:</b> <span>{windDirection(currentWeather.wind_direction)}</span></p> : null
+                }
+                <p className="current-weather__bullet"><b>Precipitation:</b> <span>{currentWeather.precipitation}%</span></p>
+                <p className="current-weather__bullet"><b>Sunrise/Sunset:</b> <span>{timeFormat(currentWeather.sunrise)}/{timeFormat(currentWeather.sunset)}</span>
+                </p>
+                
+            </div>
+        </div>
+        <HourlyCurrentContext.Provider value={dayForecast}>
+            <HourlyCurrent forecasts={dayForecast} />
+        </HourlyCurrentContext.Provider>
 
-        </article>
+    </article>
     );
 }
 

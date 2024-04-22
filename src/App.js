@@ -1,4 +1,4 @@
-import './css/App.css';
+import './scss/App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Suspense } from 'react';
 import Loading from './components/Loading';

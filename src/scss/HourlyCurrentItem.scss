@@ -1,0 +1,27 @@
+
+@import 'Variables';
+
+
+.hourly-current-item {
+    padding: 0.3rem;
+    color: $fontGrayColor;
+  
+    &__time {
+      font-size: 1rem;
+      text-align: center;
+      font-weight: 500;
+    }
+  
+    &__temperature {
+      font-size: 1.3rem;
+      text-align: center;
+      font-weight: 300;
+    }
+  
+    &__celcium {
+      font-size: 0.8rem;
+      text-align: center;
+      font-weight: 300;
+    }
+  }
+  

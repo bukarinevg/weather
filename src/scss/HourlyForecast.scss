@@ -1,0 +1,57 @@
+.hourly-table {
+    overflow: scroll;
+    width: 100%;
+    padding: 2rem;
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+  
+    th, td {
+      text-align: left;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.7);
+  
+      @media screen and (min-width: 992px) {
+        font-size: 1.3rem;
+        padding: 1rem;
+  
+        &:not(:last-child) {
+          border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+      }
+  
+      @media screen and (max-width: 992px) {
+        font-size: 0.9rem; // Override for 'th'
+        padding: 0.5rem; // Override for 'th'
+  
+        &:not(:last-child) {
+          border-right: 0.5px solid rgba(0, 0, 0, 0.05);
+        }
+      }
+  
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+  
+    tr {
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  
+        @media screen and (max-width: 992px) {
+          border-bottom: 0.5px solid rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+  
+    .weather {
+      min-width: 150px;
+    }
+  
+    .precipitation {
+      max-width: 100%;
+    }
+}
+  

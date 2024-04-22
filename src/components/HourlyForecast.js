@@ -1,6 +1,6 @@
 import { timeFormat } from '../services/DateTime';
 import weatherCodeDescription from '../utils/weatherCodeDescription';
-import '../css/HourlyForecast.css';
+import '../scss/HourlyForecast.scss';
 
 function HourlyForecast({hourly}){
 

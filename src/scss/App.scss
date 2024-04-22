@@ -1,0 +1,36 @@
+@import './ScrollBarSettings.scss', './Effects.scss', './Variables.scss';
+
+body, .App, #root, .WeatherApp {
+  min-height: 100vh;
+  width: 100%;
+
+}
+
+.WeatherApp{
+  background-image: url('https://images.unsplash.com/photo-1558124475-f44023658e4a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  opacity: 0.9;
+}
+
+
+.App {
+  text-align: center;
+  
+}
+
+.body, .WeatherApp{
+  overflow: auto;
+
+}
+
+.block{
+  margin: 1rem 0rem;
+  background-color: $basicGrayColor;
+  border-radius: 20px;
+  // border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+
+
