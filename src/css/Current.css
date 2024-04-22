@@ -1,8 +1,7 @@
 
-.current-card{
-  overflow: auto;
+.current-weather{
   border-radius: 15px;
-  padding: 1rem;;  
+  padding: 1rem;
   text-align: left;
   font-size: 1.5rem;
   color: rgba(0, 0, 0, 0.7);
@@ -12,12 +11,12 @@
   
 }
 
-.current-title{
+.current-weather_title{
   color: rgba(0, 0, 0, 0.7);
 }
 
 
-.current-card-header{
+.current-weather_header{
   color:black ;
   font-size: 1.5rem;
   text-align: center;
@@ -25,7 +24,7 @@
 
 
 
-.current-time{
+.current-weather_time{
   font-size: 1rem;
   margin-bottom: 1rem;
 
@@ -34,7 +33,7 @@
 
 
 @media screen and (max-width: 773px){
-  .current-card-bullets{
+  .current-weather_bullets{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +44,7 @@
 }
 
 @media screen and (min-width: 773px){
-  .current-card-bullets{
+  .current-weather_bullets{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -60,10 +59,10 @@
 }
 
 @media screen and (min-width: 768px){
-  /* .current-card-bullets{
+  /* .current-weather_bullets{
     margin-left: 3rem;
   } */
-  .current-card-body{
+  .current-weather_body{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -75,7 +74,7 @@
 }
 
 @media screen and (max-width: 768px){
-  .current-card-body{
+  .current-weather_body{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -107,14 +106,14 @@
   font-weight: 500;
 }
 
-.current-card-info{
+.current-weather_info{
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
 }
 
-.current-card-temperature{
+.current-weather_temperature{
   background: linear-gradient(
     rgba(173, 216, 230, 0.8), 
     rgba(0, 75, 255, 0.8)    
@@ -132,21 +131,21 @@
   flex-direction: column;
 }
 
-.current-card-temperature img {
+.current-weather_temperature img {
   margin-top: -1rem;
 
   max-height: 100%; /* Limit image size to fit in the circle */
   max-width: 100%; /* Limit image width to maintain aspect ratio */
 }
 
-.current-card-temperature .date-day {
+.current-weather_temperature .date-day {
   position: absolute;
   margin-top: 3.9rem; /* Adjust as necessary for spacing from the bottom */
 }
 
 
 
-.current-card-bullets{
+.current-weather_bullets{
   font-size: 1.2rem;
 }
 
