@@ -2,6 +2,9 @@ import "../css/HourlyCurrentItem.css";
 import { useContext } from "react";
 import HourlyCurrentContext from "../contexts/HourlyCurrentContext";
 import { hourFormat, timeFormat } from "../services/DateTime";
+import weatherImage from "../utils/weatherImage";
+import weatherCodeDescription from "../utils/weatherCodeDescription";
+import isDay from "../services/IsDay";
 
 
 function HourlyCurrentItem({ index }) {
@@ -12,15 +15,12 @@ function HourlyCurrentItem({ index }) {
                 {hourFormat(forecast.time[index])}
             </div>
             <div className="hourly-current-item__icon">
-                {/* <img
-                src={forecast.icon}
-                alt={forecast.summary}
-                width="50"
-                height="50"
-                /> */}
+                <img height={30} width={30} src={`${weatherImage(forecast.weather_code[index], forecast.isDay[index])}`} 
+              alt={weatherCodeDescription[forecast.weather_code[index]]} 
+                />
             </div>
             <div className="hourly-current-item__temperature">
-                {Math.round(forecast.temperature[index])}
+                {Math.round(forecast.temperature[index])}<span className="hourly-current-item__celcium">°C</span>
             </div>
         </div>
     );

@@ -27,7 +27,12 @@ function Current({location, currentTimeData}){
         temperature: daily.hourly[0].temperature.slice(24-amountHours, 24).concat(daily.hourly[1].temperature.slice(0, 24-  amountHours)),
         time: daily.hourly[0].time.slice(24-amountHours, 24).concat(daily.hourly[1].time.slice(0, 24 - amountHours)),
         weather_code: daily.hourly[0].weather_code.slice(24-amountHours, 24).concat(daily.hourly[1].weather_code.slice(0, 24 - amountHours)),
+        isDay: daily.hourly[0].time.slice(24-amountHours, 24).concat(daily.hourly[1].time.slice(0, 24 - amountHours)).map(time => 
+            isDay(currentWeather.sunrise, currentWeather.sunset, time)
+        )
     };
+
+    console.log(dayForecast);
 
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
     const windSpeed= Math.round(currentWeather.wind_speed );

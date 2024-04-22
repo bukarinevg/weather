@@ -149,5 +149,5 @@
     /* position: relative;
     overflow: hidden; */
     left: 0;
-    animation: slideIn 2s linear infinite;
+    animation: slideIn 2s linear infinite, blinking 2s linear infinite;
 }

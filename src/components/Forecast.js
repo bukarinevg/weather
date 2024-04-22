@@ -24,7 +24,7 @@ function Forecast(){
         <td scope="row">{dateFormat(date)}</td>
         <td className='weather-description'>     
           <div className='image'>
-            <img   src={`${weatherImage(daily.weather_code [index], isDay(daily.sunrise[index], daily.sunset[index], daily.hourly[index].time[12]))}`} 
+            <img   src={`${weatherImage(daily.weather_code [index], true)}`} 
               alt={weatherCodeDescription[daily.weather_code[index]]} 
             />
           </div> 
