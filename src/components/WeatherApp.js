@@ -40,7 +40,7 @@ function WeatherApp() {
       </div>
     );
   }
-  const { location: dataLocation, data:weatherData, time:currentTime } = data || {};
+  const { location: dataLocation, data:weatherData, time:currentTimeData } = data || {};
 
   return (
       
@@ -49,7 +49,7 @@ function WeatherApp() {
           
             <main className='container'>
               <WeatherContext.Provider value={weatherData}>
-                <Current location={dataLocation}  currentTime={currentTime} />
+                <Current location={dataLocation}  currentTimeData={currentTimeData} />
                  <Forecast />
               </WeatherContext.Provider>
           </main>   

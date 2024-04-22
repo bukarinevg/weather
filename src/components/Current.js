@@ -1,19 +1,37 @@
+import '../css/Current.css';
+import {  useContext } from 'react';
+import WeatherContext from '../contexts/WeatherContext';
 import windDirection from '../utils/windDirection';
 import weatherCodeDescription from '../utils/weatherCodeDescription';
 import { TimeFormat, timeFormat } from '../services/DateTime';
 import isDay from '../services/IsDay';
 import weatherImage from '../utils/weatherImage';
-import '../css/Current.css';
-import { useState, useContext, useEffect } from 'react';
-import WeatherContext from '../contexts/WeatherContext';
+import HourlyCurrentForecast from './HourlyCurrentForecast';
+import HourlyCurrentContext from '../contexts/HourlyCurrentContext';
 
-function Current({location, currentTime}){
+
+function Current({location, currentTimeData}){
     const { current_weather: currentWeather, daily } = useContext(WeatherContext);
-    console.log(); 
-    const dayForecast = [];
+    const  currentTime = new Date(currentWeather.time);
+
+    // const dayForecast = [daily.hourly[0], daily.hourly[1]];
+
+    const amountHours = daily.hourly[0].time.filter((time, index) => {
+        time = new Date(time);
+        if(time >= currentTime){
+            return true;
+        }
+    }).length;
+
+    const dayForecast = {
+        temperature: daily.hourly[0].temperature.slice(24-amountHours, 24).concat(daily.hourly[1].temperature.slice(0, 24-  amountHours)),
+        time: daily.hourly[0].time.slice(24-amountHours, 24).concat(daily.hourly[1].time.slice(0, 24 - amountHours)),
+        weather_code: daily.hourly[0].weather_code.slice(24-amountHours, 24).concat(daily.hourly[1].weather_code.slice(0, 24 - amountHours)),
+    };
 
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
-    const windSpeed= Math.round(currentWeather.wind_speed )
+    const windSpeed= Math.round(currentWeather.wind_speed );
+
     return ( 
         <article className="current-weather block mt-4" >
             <div className="current-card">
@@ -34,7 +52,7 @@ function Current({location, currentTime}){
                         
                         <span className="pro-title">{weatherDescription}</span>
                     </div>
-                    <span className="current-time">{currentTime.time} {currentTime.day_of_week}</span>
+                    <span className="current-time">{currentTimeData.time} {currentTimeData.day_of_week}</span>
                     <div className="current-card-bullets">
                         <p className="bullet">
                             <b>Wind Speed: </b>
@@ -49,6 +67,9 @@ function Current({location, currentTime}){
                         
                     </div>
                 </div>
+                <HourlyCurrentContext.Provider value={dayForecast}>
+                    <HourlyCurrentForecast forecasts={dayForecast} />
+                </HourlyCurrentContext.Provider>
             </div>
         </article>
     );
