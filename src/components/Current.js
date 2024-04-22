@@ -6,7 +6,7 @@ import weatherCodeDescription from '../utils/weatherCodeDescription';
 import { timeFormat } from '../services/DateTime';
 import isDay from '../services/IsDay';
 import weatherImage from '../utils/weatherImage';
-import HourlyCurrentForecast from './HourlyCurrentForecast';
+import HourlyCurrent from './HourlyCurrent';
 import HourlyCurrentContext from '../contexts/HourlyCurrentContext';
 
 
@@ -67,7 +67,7 @@ function Current({location, currentTimeData}){
                 </div>
             </div>
             <HourlyCurrentContext.Provider value={dayForecast}>
-                <HourlyCurrentForecast forecasts={dayForecast} />
+                <HourlyCurrent forecasts={dayForecast} />
             </HourlyCurrentContext.Provider>
 
         </article>

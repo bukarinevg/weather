@@ -1,8 +1,8 @@
-.hourly-current-forecast-item{
+.hourly-current-item{
     padding: 0.3rem;
 }
 
-.hourly-current-forecast-item__time{
+.hourly-current-item__time{
     font-size: 1rem;
     color: rgba(0, 0, 0, 0.7);
     text-align: center;
@@ -10,7 +10,7 @@
 }
 
 
-.hourly-current-forecast-item__temperature{
+.hourly-current-item__temperature{
     font-size: 1.3rem;
     color: rgba(0, 0, 0, 0.7);
     text-align: center;
