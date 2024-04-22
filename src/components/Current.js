@@ -1,4 +1,4 @@
-import '../css/Current.css';
+import '../scss/Current.scss';
 import {  useContext } from 'react';
 import WeatherContext from '../contexts/WeatherContext';
 import windDirection from '../utils/windDirection';
@@ -54,19 +54,19 @@ function Current({location, currentTimeData}){
                         <span className="date-day" >{Math.round(currentWeather.temperature)}°C</span>
                     </div>
                     
-                    <span className="pro-title">{weatherDescription}</span>
+                    <span className="current-weather_description">{weatherDescription}</span>
                 </div>
                 <span className="current-weather_time">{currentTimeData.time} {currentTimeData.day_of_week}</span>
                 <div className="current-weather_bullets">
-                    <p className="bullet">
+                    <p className="current-weather_bullet">
                         <b>Wind Speed: </b>
                             <span>{windSpeed} km/h</span>
                     </p>
                     {
-                        windSpeed > 0 ? <p className="bullet"><b>Wind Direction:</b> <span>{windDirection(currentWeather.wind_direction)}</span></p> : null
+                        windSpeed > 0 ? <p className="current-weather_bullet"><b>Wind Direction:</b> <span>{windDirection(currentWeather.wind_direction)}</span></p> : null
                     }
-                    <p className="bullet"><b>Precipitation:</b> <span>{currentWeather.precipitation}%</span></p>
-                    <p className="bullet"><b>Sunrise/Sunset:</b> <span>{timeFormat(currentWeather.sunrise)}/{timeFormat(currentWeather.sunset)}</span>
+                    <p className="current-weather_bullet"><b>Precipitation:</b> <span>{currentWeather.precipitation}%</span></p>
+                    <p className="current-weather_bullet"><b>Sunrise/Sunset:</b> <span>{timeFormat(currentWeather.sunrise)}/{timeFormat(currentWeather.sunset)}</span>
                     </p>
                     
                 </div>

@@ -1,4 +1,4 @@
-import "../css/HourlyCurrentItem.css";
+import "../scss/HourlyCurrentItem.css";
 import { useContext } from "react";
 import HourlyCurrentContext from "../contexts/HourlyCurrentContext";
 import { hourFormat, timeFormat } from "../services/DateTime";

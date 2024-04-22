@@ -1,4 +1,4 @@
-import '../css/Forecast.css';
+import '../scss/Forecast.css';
 import { useState, useContext } from 'react';
 import WeatherContext from '../contexts/WeatherContext';
 import { timeFormat, dateFormat } from '../services/DateTime';

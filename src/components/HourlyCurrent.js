@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/HourlyCurrent.css';
+import '../scss/HourlyCurrent.css';
 import HourlyCurrentItem from './HourlyCurrentItem';
 
 const HourlyCurrent = ({ forecasts }) => {

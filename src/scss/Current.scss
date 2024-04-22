@@ -1,0 +1,121 @@
+.current-weather {
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: left;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+
+  &_title {
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  &_header {
+    color: black;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  &_time {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &_bullets {
+    font-size: 1.2rem;
+
+    @media screen and (max-width: 773px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 0.1rem;
+    }
+
+    @media screen and (min-width: 773px) {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: row;
+      margin-top: 0.1rem;
+      flex-wrap: wrap;
+    }
+  }
+
+  &_bullet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    span, b {
+      display: inline-block;
+      margin-right: 0.3rem;
+    }
+
+    b {
+      font-weight: 500;
+    }
+
+    @media screen and (min-width: 773px){
+      margin-right: 2rem;
+    }
+  }
+
+  &_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  &_temperature {
+    background: linear-gradient(rgba(173, 216, 230, 0.8), rgba(0, 75, 255, 0.8));
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 50%;
+    color: white;
+    height: 7rem;
+    width: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+
+    img {
+      margin-top: -1rem;
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    .date-day {
+      position: absolute;
+      margin-top: 3.9rem;
+    }
+  }
+
+  &_body {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-bottom: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      padding-bottom: 1rem;
+    }
+  }
+
+  &_description {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+}
