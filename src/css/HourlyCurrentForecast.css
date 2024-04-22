@@ -4,18 +4,5 @@
     justify-content: space-between;
     margin: 0 1rem;
     padding: 1rem 0;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.hourly-current-forecast-item__time{
-    font-size: 1rem;
-    color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-}
-
-
-.hourly-current-forecast-item__temperature{
-    font-size: 1rem;
-    color: rgba(0, 0, 0, 0.7);
-    text-align: center;
+    border-top: 2px solid #e0e0e0;
 }
