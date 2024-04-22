@@ -1,26 +1,24 @@
 @import 'Variables';
 .current-weather {
-  border-radius: 10px;
-  padding: 1rem;
   text-align: left;
   font-size: 1.5rem;
   color: $fontGrayColor;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
   height: 100%;
 
 
-  &_header {
+  &__header {
     color: black;
     font-size: 1.5rem;
     text-align: center;
   }
 
-  &_time {
+  &__time {
     font-size: 1rem;
     margin-bottom: 1rem;
   }
 
-  &_bullets {
+  &__bullets {
     font-size: 1.2rem;
 
     @media screen and (max-width: 773px) {
@@ -41,7 +39,7 @@
     }
   }
 
-  &_bullet {
+  &__bullet {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -61,14 +59,14 @@
     }
   }
 
-  &_info {
+  &__info {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
   }
 
-  &_temperature {
+  &__temperature {
     background: $weatherImageBackground;
     font-size: 1.3rem;
     font-weight: bold;
@@ -93,7 +91,7 @@
     }
   }
 
-  &_body {
+  &__body {
     @media screen and (min-width: 768px) {
       display: flex;
       justify-content: center;
@@ -111,7 +109,7 @@
     }
   }
 
-  &_description {
+  &__description {
     text-align: center;
     margin-bottom: 1rem;
     font-weight: 500;

@@ -1,7 +1,5 @@
 import { Navbar, Form, FormControl, Button, Container } from 'react-bootstrap';
 import { useState } from 'react';
-import '../scss/Header.css';
-
 function Header({setLocation}){
 
     const [input, setInput] = useState('');
