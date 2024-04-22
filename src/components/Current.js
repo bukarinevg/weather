@@ -32,8 +32,6 @@ function Current({location, currentTimeData}){
         )
     };
 
-    console.log(dayForecast);
-
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
     const windSpeed= Math.round(currentWeather.wind_speed );
 
