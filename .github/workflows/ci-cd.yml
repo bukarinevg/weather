@@ -32,14 +32,20 @@ jobs:
 
       - name: Build
         run: npm run build
-  # Deploy Job
-  deploy:
-    runs-on: ubuntu-latest
-    # Add a dependency to the build job
-    needs: build
-    steps:
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.MAIN_ACCESS }}
           publish_dir: ./build
+  # Deploy Job
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   # Add a dependency to the build job
+  #   needs: build
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       uses: peaceiris/actions-gh-pages@v4
+  #       with:
+  #         github_token: ${{ secrets.MAIN_ACCESS }}
+  #         publish_dir: ./build
