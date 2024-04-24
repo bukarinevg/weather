@@ -1,8 +1,40 @@
-name: hello-world
-on: push
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Adjust this if your default branch has a different name
+  pull_request:
+    branches:
+      - main  # Adjust this if your default branch has a different name
+
 jobs:
-  sample-job:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Use the Node.js version suitable for your project
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        run: npm run deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.MAIN_ACCESS }}
