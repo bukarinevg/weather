@@ -1,12 +1,12 @@
 import { useState, useEffect, createContext } from 'react';
 import {  useLocation } from 'react-router-dom';
-import { getWeatherData } from '../services/WeatherAPI';
-import WeatherContext from '../contexts/WeatherContext'; 
-import Current from './Current';
-import Forecast from './Forecast';
-import Loading from './Loading';
-import Header from './Header';
-import Error from './Error';
+import { getWeatherData } from '@services/WeatherAPI';
+import WeatherContext from '@contexts/WeatherContext'; 
+import Current from '@components/Current';
+import Forecast from '@components/Forecast';
+import Loading from '@components/Loading';
+import Header from '@components/Header';
+import Error from '@components/Error';
 
 import { useQuery } from 'react-query';
 

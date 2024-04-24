@@ -1,6 +1,6 @@
 import React from 'react';
-import '../scss/HourlyCurrent.scss';
-import HourlyCurrentItem from './HourlyCurrentItem';
+import '@styles/HourlyCurrent.scss';
+import HourlyCurrentItem from '@components/HourlyCurrentItem';
 
 const HourlyCurrent = ({ forecasts }) => {
   return (
