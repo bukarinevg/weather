@@ -1,9 +1,9 @@
-import "../scss/HourlyCurrentItem.scss";
+import "@styles/HourlyCurrentItem.scss";
 import { useContext } from "react";
 import HourlyCurrentContext from "@contexts/HourlyCurrentContext";
-import { hourFormat, timeFormat } from "../services/DateTime";
-import weatherImage from "../utils/weatherImage";
-import weatherCodeDescription from "../utils/weatherCodeDescription";
+import { hourFormat, timeFormat } from "@services/DateTime";
+import weatherImage from "@utils/weatherImage";
+import weatherCodeDescription from "@utils/weatherCodeDescription";
 
 
 function HourlyCurrentItem({ index }) {

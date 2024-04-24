@@ -1,9 +1,9 @@
-import '../scss/Forecast.scss';
+import '@styles/Forecast.scss';
 import { useState, useContext } from 'react';
 import WeatherContext from '@contexts/WeatherContext';
-import { timeFormat, dateFormat } from '../services/DateTime';
-import weatherCodeDescription from '../utils/weatherCodeDescription';
-import weatherImage from '../utils/weatherImage';
+import { timeFormat, dateFormat } from '@services/DateTime';
+import weatherCodeDescription from '@utils/weatherCodeDescription';
+import weatherImage from '@utils/weatherImage';
 import ModalBased from '@components/ModalBased';
 import HourlyForecast from '@components/HourlyForecast';
 

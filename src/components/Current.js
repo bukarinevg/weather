@@ -1,11 +1,11 @@
-import '../scss/Current.scss';
+import '@styles/Current.scss';
 import {  useContext } from 'react';
 import WeatherContext from '@contexts/WeatherContext';
-import windDirection from '../utils/windDirection';
-import weatherCodeDescription from '../utils/weatherCodeDescription';
-import { timeFormat } from '../services/DateTime';
-import isDay from '../services/IsDay';
-import weatherImage from '../utils/weatherImage';
+import windDirection from '@utils/windDirection';
+import weatherCodeDescription from '@utils/weatherCodeDescription';
+import { timeFormat } from '@services/DateTime';
+import isDay from '@services/IsDay';
+import weatherImage from '@utils/weatherImage';
 import HourlyCurrent from '@components/HourlyCurrent';
 import HourlyCurrentContext from '@contexts/HourlyCurrentContext';
 
