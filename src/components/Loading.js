@@ -2,7 +2,6 @@ import {TailSpin} from 'react-loader-spinner';
 import '@styles/Loading.scss'; 
 
 function Loading() {
-    console.log("Loading component");
     return (
         <div className="Loading container-fluid d-flex justify-content-center align-items-center">
             <TailSpin
