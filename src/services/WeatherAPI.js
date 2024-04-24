@@ -1,10 +1,7 @@
-import { throwError } from "rxjs";
-
 const BASE_URL = 'https://app-weather-o0lf.onrender.com/public/';
 
 // Function to fetch data with a location parameter (GET request)
 export const getWeatherData = async (location) => {
-  const uniqueId = Math.random();
   let url;
   if(location)
     url = new URL(`${BASE_URL}${location}`);
@@ -23,5 +20,5 @@ export const getWeatherData = async (location) => {
     console.log('Error fetching data', error);
     throw error; 
   }
-  return;
+
 };

@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState } from 'react';
 import {  useLocation } from 'react-router-dom';
 import { getWeatherData } from '@services/WeatherAPI';
 import WeatherContext from '@contexts/WeatherContext'; 
