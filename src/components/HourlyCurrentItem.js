@@ -1,7 +1,7 @@
 import "@styles/HourlyCurrentItem.scss";
 import { useContext } from "react";
 import HourlyCurrentContext from "@contexts/HourlyCurrentContext";
-import { hourFormat, timeFormat } from "@services/DateTime";
+import { hourFormat } from "@services/DateTime";
 import weatherImage from "@utils/weatherImage";
 import weatherCodeDescription from "@utils/weatherCodeDescription";
 

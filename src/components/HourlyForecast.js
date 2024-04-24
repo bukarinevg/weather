@@ -5,7 +5,7 @@ import '@styles/HourlyForecast.scss';
 function HourlyForecast({hourly}){
 
     function tableRows(){
-        return hourly.time.map((time, index) => index % 3 == 0 ? (
+        return hourly.time.map((time, index) => index % 3 === 0 ? (
           <tr key={index} >
             <td>{timeFormat(time)}</td>
             <td>{hourly.temperature[index]}°C</td>

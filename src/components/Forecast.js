@@ -13,16 +13,14 @@ function Forecast(){
   const [hourly, setHourly] = useState('');
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const {daily:daily} = useContext(WeatherContext);
-
+  const {daily} = useContext(WeatherContext);
 
   function tableRows(){
     return daily.sunrise.map((date, index) => (
       <tr key={index} onClick={() =>hourlyWeather(index)}>
-        <td scope="row">{dateFormat(date)}</td>
+        <td>{dateFormat(date)}</td>
         <td className='forecast__weather__description'>     
-            <img className='forecast__weather__description__image' src={`${weatherImage(daily.weather_code [index], true)}`} 
+            <img className='forecast__weather__description__image' src={`${weatherImage(daily.weather_code[index], true)}`} 
               alt={weatherCodeDescription[daily.weather_code[index]]} 
             />
           <div  className='forecast__weather__description-text'>
@@ -49,7 +47,7 @@ function Forecast(){
       <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<HourlyForecast hourly={hourly}/>}/>
       <h4 className='forecast__title'>
         Daily forecast
-        <img src='/weather/images/arrow.svg' width={100} height={20} className='forecast__show-more' />
+        <img src='/weather/images/arrow.svg' width={100} height={20} className='forecast__show-more' alt='show more' />
       </h4>
       <div className='forecast__scrolled'>
         <table className="forecast__table outline-none scroller">

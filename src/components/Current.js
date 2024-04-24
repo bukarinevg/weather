@@ -18,9 +18,7 @@ function Current({location, currentTimeData}){
 
     const amountHours = daily.hourly[0].time.filter((time, index) => {
         time = new Date(time);
-        if(time >= currentTime){
-            return true;
-        }
+        return time >= currentTime;
     }).length;
 
     const dayForecast = {

@@ -1,6 +1,6 @@
 function Error({ error }) {
   let text = 'Error';
-  switch (error.status) {
+  switch (error) {
     case 404:
       text = 'Location not found';
       break;
@@ -13,7 +13,7 @@ function Error({ error }) {
     }
   return (
     <div className="alert alert-danger" role="alert">
-      {text} {error.status}
+      {text} {error}
     </div>
   );
 }
