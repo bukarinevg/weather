@@ -1,9 +1,9 @@
 import './scss/App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Suspense } from 'react';
-import Loading from './components/Loading';
+import Loading from '@components/Loading';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import WeatherApp from './components/WeatherApp';
+import WeatherApp from '@components/WeatherApp';
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { useEffect } from 'react';
 
