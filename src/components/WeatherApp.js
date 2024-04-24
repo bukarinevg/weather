@@ -16,9 +16,9 @@ function WeatherApp() {
 
   const { data, error, isLoading, isError } = useQuery(['weatherData', location], () => getWeatherData(location), {
     retry: (failureCount, error) => {
-      if (error.status === 404) return false;
+      if (error === 404) return false;
       new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Retrying..., failureCount:', failureCount, 'error:', error, 'status:', error.status);
+      console.log('Retrying..., failureCount:', failureCount, 'error:', error);
       return failureCount < 3;
     },
   });
