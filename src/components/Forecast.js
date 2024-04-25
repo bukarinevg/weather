@@ -2,7 +2,7 @@ import '@styles/Forecast.scss';
 import { useState, useContext } from 'react';
 import { timeFormat, dateFormat } from '@services/DateTime';
 import weatherCodeDescription from '@utils/weatherCodeDescription';
-import weatherImage from '@utils/weatherImage';
+import WeatherDescriptionImage from '@components/WeatherDescriptionImage';
 import ModalBased from '@components/ModalBased';
 import HourlyForecast from '@components/HourlyForecast';
 import WeatherContext from '@contexts/WeatherContext';
@@ -19,10 +19,8 @@ function Forecast(){
     return daily.sunrise.map((date, index) => (
       <tr key={index} onClick={() =>hourlyWeather(index)}>
         <td>{dateFormat(date)}</td>
-        <td className='forecast__weather__description'>     
-            <img className='forecast__weather__description__image' src={`${weatherImage(daily.weather_code[index], true)}`} 
-              alt={weatherCodeDescription[daily.weather_code[index]]} 
-            />
+        <td className='forecast__weather__description'>    
+          <WeatherDescriptionImage className='forecast__weather__description__image' weatherCode={daily.weather_code[index]} isDay={true} /> 
           <div  className='forecast__weather__description-text'>
             <span>{weatherCodeDescription[daily.weather_code[index]]}</span> 
           </div>     
