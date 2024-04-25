@@ -1,11 +1,11 @@
 import '@styles/Forecast.scss';
 import { useState, useContext } from 'react';
-import WeatherContext from '@contexts/WeatherContext';
 import { timeFormat, dateFormat } from '@services/DateTime';
 import weatherCodeDescription from '@utils/weatherCodeDescription';
 import weatherImage from '@utils/weatherImage';
 import ModalBased from '@components/ModalBased';
 import HourlyForecast from '@components/HourlyForecast';
+import WeatherContext from '@contexts/WeatherContext';
 
 
 function Forecast(){
@@ -37,14 +37,14 @@ function Forecast(){
   }
 
   function hourlyWeather(index){    
-    setHourly(daily.hourly[index]);
+    setHourly(index);
     handleShow();
   }
 
 
   return (
     <article className='block'>
-      <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<HourlyForecast hourly={hourly}/>}/>
+      <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<HourlyForecast index={hourly}/>}/>
       <h4 className='forecast__title'>
         Daily forecast
         <img src='/weather/images/arrow.svg' width={100} height={20} className='forecast__show-more' alt='show more' />
@@ -68,8 +68,6 @@ function Forecast(){
           </tbody>
         </table>
       </div>
-
-
     </article>
   )
 }

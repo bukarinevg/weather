@@ -1,13 +1,13 @@
 import '@styles/Current.scss';
 import {  useContext } from 'react';
-import WeatherContext from '@contexts/WeatherContext';
+import HourlyCurrent from '@components/HourlyCurrent';
 import windDirection from '@utils/windDirection';
 import weatherCodeDescription from '@utils/weatherCodeDescription';
+import weatherImage from '@utils/weatherImage';
 import { timeFormat } from '@services/DateTime';
 import isDay from '@services/IsDay';
-import weatherImage from '@utils/weatherImage';
-import HourlyCurrent from '@components/HourlyCurrent';
 import HourlyCurrentContext from '@contexts/HourlyCurrentContext';
+import WeatherContext from '@contexts/WeatherContext';
 
 
 function Current({location, currentTimeData}){
@@ -37,43 +37,36 @@ function Current({location, currentTimeData}){
 
     return ( 
         <article className="current-weather block" >
-        <h4 className="current-weather__title">Current Weather</h4>
-        <div className="current-weather__header ">
-            <p className="">{location} </p>
-        </div>
-        <div className="current-weather__body pt-2">
-            <div className="current-weather__info">
-                
-                <div className="current-weather__temperature mb-2">
-                    
-                    <img  src={weatherImage(currentWeather.weather_code, isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time))} alt={weatherDescription} />
-                
-
-                    <span className="date-day" >{Math.round(currentWeather.temperature)}°C</span>
+            <h4 className="current-weather__title">Current Weather</h4>
+            <div className="current-weather__header ">
+                <p className="">{location} </p>
+            </div>
+            <div className="current-weather__body pt-2">
+                <div className="current-weather__info">
+                    <div className="current-weather__temperature mb-2">
+                        <img  src={weatherImage(currentWeather.weather_code, isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time))} alt={weatherDescription} />
+                        <span className="date-day" >{Math.round(currentWeather.temperature)}°C</span>
+                    </div>
+                    <span className="current-weather__description">{weatherDescription}</span>
                 </div>
-                
-                <span className="current-weather__description">{weatherDescription}</span>
+                <span className="current-weather__time">{currentTimeData.time} {currentTimeData.day_of_week}</span>
+                <div className="current-weather__bullets">
+                    <p className="current-weather__bullet">
+                        <b>Wind Speed: </b>
+                            <span>{windSpeed} km/h</span>
+                    </p>
+                    {
+                        windSpeed > 0 ? <p className="current-weather__bullet"><b>Wind Direction:</b> <span>{windDirection(currentWeather.wind_direction)}</span></p> : null
+                    }
+                    <p className="current-weather__bullet"><b>Precipitation:</b> <span>{currentWeather.precipitation}%</span></p>
+                    <p className="current-weather__bullet"><b>Sunrise/Sunset:</b> <span>{timeFormat(currentWeather.sunrise)}/{timeFormat(currentWeather.sunset)}</span>
+                    </p>
+                </div>
             </div>
-            <span className="current-weather__time">{currentTimeData.time} {currentTimeData.day_of_week}</span>
-            <div className="current-weather__bullets">
-                <p className="current-weather__bullet">
-                    <b>Wind Speed: </b>
-                        <span>{windSpeed} km/h</span>
-                </p>
-                {
-                    windSpeed > 0 ? <p className="current-weather__bullet"><b>Wind Direction:</b> <span>{windDirection(currentWeather.wind_direction)}</span></p> : null
-                }
-                <p className="current-weather__bullet"><b>Precipitation:</b> <span>{currentWeather.precipitation}%</span></p>
-                <p className="current-weather__bullet"><b>Sunrise/Sunset:</b> <span>{timeFormat(currentWeather.sunrise)}/{timeFormat(currentWeather.sunset)}</span>
-                </p>
-                
-            </div>
-        </div>
-        <HourlyCurrentContext.Provider value={dayForecast}>
-            <HourlyCurrent forecasts={dayForecast} />
-        </HourlyCurrentContext.Provider>
-
-    </article>
+            <HourlyCurrentContext.Provider value={dayForecast}>
+                <HourlyCurrent forecasts={dayForecast} />
+            </HourlyCurrentContext.Provider>
+        </article>
     );
 }
 
