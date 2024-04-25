@@ -1,9 +1,9 @@
 import '@styles/Current.scss';
 import {  useContext } from 'react';
 import HourlyCurrent from '@components/HourlyCurrent';
+import WeatherDescriptionImage from '@components/WeatherDescriptionImage';
 import windDirection from '@utils/windDirection';
 import weatherCodeDescription from '@utils/weatherCodeDescription';
-import weatherImage from '@utils/weatherImage';
 import { timeFormat } from '@services/DateTime';
 import isDay from '@services/IsDay';
 import HourlyCurrentContext from '@contexts/HourlyCurrentContext';
@@ -30,7 +30,6 @@ function Current({location, currentTimeData}){
         )
     };
 
-    console.log(dayForecast);
 
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
     const windSpeed= Math.round(currentWeather.wind_speed );
@@ -44,7 +43,8 @@ function Current({location, currentTimeData}){
             <div className="current-weather__body pt-2">
                 <div className="current-weather__info">
                     <div className="current-weather__temperature mb-2">
-                        <img  src={weatherImage(currentWeather.weather_code, isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time))} alt={weatherDescription} />
+                        <WeatherDescriptionImage background={false} weatherCode={currentWeather.weather_code} isDay={isDay( currentWeather.sunrise,currentWeather.sunset, currentWeather.time)} /> 
+                     
                         <span className="date-day" >{Math.round(currentWeather.temperature)}°C</span>
                     </div>
                     <span className="current-weather__description">{weatherDescription}</span>
