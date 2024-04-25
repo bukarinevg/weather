@@ -4,7 +4,6 @@ import HourlyCurrent from '@components/HourlyCurrent';
 import WeatherDescriptionImage from '@components/WeatherDescriptionImage';
 import windDirection from '@utils/windDirection';
 import weatherCodeDescription from '@utils/weatherCodeDescription';
-import weatherImage from '@utils/weatherImage';
 import { timeFormat } from '@services/DateTime';
 import isDay from '@services/IsDay';
 import HourlyCurrentContext from '@contexts/HourlyCurrentContext';
@@ -31,7 +30,6 @@ function Current({location, currentTimeData}){
         )
     };
 
-    console.log(dayForecast);
 
     const weatherDescription = weatherCodeDescription[currentWeather.weather_code];
     const windSpeed= Math.round(currentWeather.wind_speed );
