@@ -5,7 +5,7 @@ import '@styles/ModalBased.scss';
 
 function ModalBased({show, handleClose, handleSubmit, heading, body,footer}) {
 return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal size="lg" show={show} onHide={handleClose}>
         {
             heading ?
                 <Modal.Header closeButton>
