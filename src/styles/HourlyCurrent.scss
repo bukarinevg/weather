@@ -1,8 +1,17 @@
 .hourly-current {
-    overflow-x: auto;
-    display: flex;
-    justify-content: space-between;
     margin: 0 1rem;
-    padding: 1rem 0;
+    padding: 1rem;
     border-top: 2px solid #e0e0e0;
+
+    @media screen and (max-width: 768px) {
+        padding: 1rem 0;
+    }
+
+    &_wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        overflow-x: auto;
+
+    }
 }
