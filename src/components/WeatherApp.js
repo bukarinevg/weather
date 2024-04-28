@@ -11,7 +11,7 @@ import { useWeatherData } from '@hooks/useWeather';
 
 function WeatherApp() {
   const [location, setLocation] = useState(new URLSearchParams(useLocation().search).get('location') || null);
-  const { data, error, isLoading, isError, isStale } = useWeatherData(location);
+  const { data, error, isLoading, isError } = useWeatherData(location);
 
   if (isError) {
     return  ( 
@@ -30,7 +30,7 @@ function WeatherApp() {
       </div>
     );
   }
-  
+
   const { location: dataLocation, data:weatherData, time:currentTimeData } = data || {};
   return (
       
