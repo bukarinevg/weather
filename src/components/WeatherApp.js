@@ -30,7 +30,6 @@ function WeatherApp() {
       </div>
     );
   }
-
   const { location: dataLocation, data:weatherData, time:currentTimeData } = data || {};
   return (
       
