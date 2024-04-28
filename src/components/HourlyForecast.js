@@ -20,7 +20,7 @@ function HourlyForecast({index}){
           <tr key={index} >
             <td>{timeFormat(time)}</td>
             <td>{hourly.temperature[index]}°C</td>
-            <td class='hourly-table_weather-description'>
+            <td className='hourly-table_weather-description'>
                 <WeatherDescriptionImage className='hourly-table_weather-description_image' weatherCode={hourly.weather_code[index]} isDay={isDay( sunrise, sunset, time)} />
                 {weatherCodeDescription[hourly.weather_code[index]]}
             </td>

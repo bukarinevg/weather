@@ -2,11 +2,15 @@ import { useQuery } from 'react-query';
 import { getWeatherData } from '@services/WeatherAPI';
 
 export function useWeatherData(location) {
-  return useQuery(['weatherData', location], () => getWeatherData(location), {
-    retry: (failureCount, error) => {
-      if (error.status === 404) return false;
-      return failureCount < 3; // Retry logic simplified
-    },
-    retryDelay: (attempt) => Math.min(1000 * 2 ** attempt, 30000), // Exponential backoff
-  });
+  return useQuery(
+    ['weatherData', location], 
+    () => getWeatherData(location), {
+      retry: (failureCount, error) => error !== 404 && failureCount < 3,
+      retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 10000),
+      staleTime: 1000 * 60 * 5,  // 5 minutes
+      cacheTime: 1000 * 60 * 10, // 10 minutes
+      refetchOnWindowFocus: true
+
+    }
+  );
 }
