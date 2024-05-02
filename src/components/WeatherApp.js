@@ -12,12 +12,10 @@ import { useWeatherData } from '@hooks/useWeather';
 function WeatherApp() {
   const locationSearch = useLocation().search;
   const [location, setLocation] = useState(new URLSearchParams(locationSearch).get('location') || '');
-  const navigate = useNavigate();
   const { data, error, isLoading, isError } = useWeatherData(location);
-
-
   useEffect(() => {
     if(location){
+      const navigate = useNavigate();
       navigate(`?location=${location}`);
     }
   }, [location ]);
