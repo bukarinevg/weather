@@ -10,7 +10,7 @@ function Header({location, setLocation}){
         if(debouncedInput){
             setLocation(debouncedInput );
         }
-    }, [debouncedInput]);
+    }, [debouncedInput, setLocation]);
 
     
     const handleInputChange = (event) => {
