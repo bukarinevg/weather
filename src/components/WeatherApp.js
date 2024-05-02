@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import {  useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import {  useLocation, useNavigate } from 'react-router-dom';
 import WeatherContext from '@contexts/WeatherContext'; 
 import Current from '@components/Current';
 import Forecast from '@components/Forecast';
@@ -10,13 +10,23 @@ import { useWeatherData } from '@hooks/useWeather';
 
 
 function WeatherApp() {
-  const [location, setLocation] = useState(new URLSearchParams(useLocation().search).get('location') || null);
+  const locationSearch = useLocation().search;
+  const [location, setLocation] = useState(new URLSearchParams(locationSearch).get('location') || '');
+  const navigate = useNavigate();
   const { data, error, isLoading, isError } = useWeatherData(location);
+
+
+  useEffect(() => {
+    if(location){
+      navigate(`?location=${location}`);
+    }
+  }, [location ]);
+
 
   if (isError) {
     return  ( 
       <div className="WeatherApp" >
-        <Header setLocation={setLocation}></Header>
+        <Header  location={location} setLocation={setLocation}></Header>
         <Error error={error} />
       </div>
     );
@@ -25,7 +35,7 @@ function WeatherApp() {
   if (isLoading) {
     return  ( 
       <div className="WeatherApp" >
-        <Header setLocation={setLocation}></Header>
+        <Header location={location} setLocation={setLocation}></Header>
         <Loading />
       </div>
     );
@@ -34,8 +44,7 @@ function WeatherApp() {
   return (
       
         <div className="WeatherApp" >
-          <Header setLocation={setLocation}/>
-          
+          <Header location={location} setLocation={setLocation}/>
             <main className='container'>
               <WeatherContext.Provider value={weatherData}>
                 <Current location={dataLocation}  currentTimeData={currentTimeData} />
