@@ -33,6 +33,7 @@ function Forecast(){
       </tr>
     ))
   }
+  // console.log(daily);
 
   function hourlyWeather(index){    
     setHourly(index);
@@ -42,7 +43,7 @@ function Forecast(){
 
   return (
     <article className='block'>
-      <ModalBased show={show} handleClose={handleClose} heading='Hourly forecast' body={<HourlyForecast index={hourly}/>}/>
+      <ModalBased show={show} handleClose={handleClose} heading={`Hourly forecast: ${dateFormat(daily.sunrise[hourly])}`} body={<HourlyForecast index={hourly}/>}/>
       <h4 className='forecast__title'>
         Daily forecast
         <img src='/weather/images/arrow.svg' width={100} height={20} className='forecast__show-more' alt='show more' />
