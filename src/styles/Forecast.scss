@@ -1,5 +1,6 @@
 @import 'Variables';
 .forecast {
+  transition: all 0.3s ease-in-out;
     &__scrolled{
         overflow-x: scroll;
     }
